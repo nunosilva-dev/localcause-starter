@@ -7,13 +7,19 @@ export const MissionBlock = ({data}: { data: PageBlocksMission }) => {
     return (
         <section className="py-20 px-4 max-w-7xl mx-auto">
             <div
-                className={cn("flex flex-col gap-12 items-center", data.imageSide === "left" ? "lg:flex-row" : "lg:flex-row-reverse")}>
-                <div className="flex-1">
-                    <img src={data.image} alt="Mission" className="rounded-2xl shadow-xl w-full object-cover h-[400px]"
-                         data-tina-field={tinaField(data, "image")}/>
-                </div>
-                <div className="flex-1 prose prose-lg prose-headings:text-primary"
-                     data-tina-field={tinaField(data, "content")}>
+                className={cn("flex flex-col gap-12 items-center",
+                    data.image ? (data.imageSide === "left" ? "lg:flex-row" : "lg:flex-row-reverse") : ""
+                )}>
+                {data.image && (
+                    <div className="flex-1 w-full">
+                        <img src={data.image} alt="Mission"
+                             className="rounded-2xl shadow-xl w-full object-cover h-[400px]"
+                             data-tina-field={tinaField(data, "image")}/>
+                    </div>
+                )}
+                <div
+                    className={cn("prose prose-lg prose-headings:text-primary", data.image ? "flex-1" : "w-full max-w-none")}
+                    data-tina-field={tinaField(data, "content")}>
                     <TinaMarkdown content={data.content}/>
                 </div>
             </div>

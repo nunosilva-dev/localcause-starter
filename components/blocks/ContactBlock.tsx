@@ -8,18 +8,24 @@ export const ContactBlock = ({data}: { data: PageBlocksContact }) => {
                 <div className="flex-1">
                     <h2 className="text-3xl font-bold mb-8">Contact Us</h2>
                     <div className="space-y-6 text-lg">
-                        <div className="flex items-center gap-4">
-                            <MapPin className="text-primary w-6 h-6"/>
-                            <span>{data.address}</span>
-                        </div>
-                        <div className="flex items-center gap-4">
-                            <Phone className="text-primary w-6 h-6"/>
-                            <span>{data.phone}</span>
-                        </div>
-                        <div className="flex items-center gap-4">
-                            <Mail className="text-primary w-6 h-6"/>
-                            <span>{data.email}</span>
-                        </div>
+                        {data.address && (
+                            <div className="flex items-center gap-4">
+                                <MapPin className="text-primary w-6 h-6"/>
+                                <span>{data.address}</span>
+                            </div>
+                        )}
+                        {data.phone && (
+                            <div className="flex items-center gap-4">
+                                <Phone className="text-primary w-6 h-6"/>
+                                <span>{data.phone}</span>
+                            </div>
+                        )}
+                        {data.email && (
+                            <div className="flex items-center gap-4">
+                                <Mail className="text-primary w-6 h-6"/>
+                                <span>{data.email}</span>
+                            </div>
+                        )}
                     </div>
                 </div>
                 <div className="flex-1 h-[400px] rounded-xl overflow-hidden bg-gray-800">
