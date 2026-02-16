@@ -254,7 +254,7 @@ export type PageBlocks = PageBlocksHero | PageBlocksMission | PageBlocksImpactGr
 
 export type Page = Node & Document & {
   __typename?: 'Page';
-    title: Scalars['String']['output'];
+  title: Scalars['String']['output'];
   blocks?: Maybe<Array<Maybe<PageBlocks>>>;
   id: Scalars['ID']['output'];
   _sys: SystemInfo;
@@ -361,7 +361,7 @@ export type PageBlocksFilter = {
 };
 
 export type PageFilter = {
-    title?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
   blocks?: InputMaybe<PageBlocksFilter>;
 };
 
@@ -587,7 +587,7 @@ export type PageBlocksMutation = {
 };
 
 export type PageMutation = {
-    title?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
   blocks?: InputMaybe<Array<InputMaybe<PageBlocksMutation>>>;
 };
 
@@ -613,47 +613,47 @@ export type GlobalMutation = {
 };
 
 export type PagePartsFragment = {
-    __typename: 'Page',
-    title: string,
-    blocks?: Array<{
-        __typename: 'PageBlocksHero',
-        headline?: string | null,
-        subtext?: string | null,
-        backgroundImage?: string | null,
-        cta?: { __typename: 'PageBlocksHeroCta', label?: string | null, url?: string | null } | null
-    } | { __typename: 'PageBlocksMission', image?: string | null, imageSide?: string | null, content?: any | null } | {
-        __typename: 'PageBlocksImpactGrid',
-        stats?: Array<{
-            __typename: 'PageBlocksImpactGridStats',
-            value?: string | null,
-            label?: string | null
-        } | null> | null
-    } | {
-        __typename: 'PageBlocksDonation',
-        visible?: boolean | null,
-        headline?: string | null,
-        description?: any | null,
-        methods?: Array<{
-            __typename: 'PageBlocksDonationMethods',
-            label?: string | null,
-            value?: string | null,
-            helperText?: string | null
-        } | null> | null
-    } | {
-        __typename: 'PageBlocksEvents',
-        items?: Array<{
-            __typename: 'PageBlocksEventsItems',
-            title?: string | null,
-            date?: string | null,
-            location?: string | null
-        } | null> | null
-    } | {
-        __typename: 'PageBlocksContact',
-        address?: string | null,
-        phone?: string | null,
-        email?: string | null,
-        mapEmbed?: string | null
+  __typename: 'Page',
+  title: string,
+  blocks?: Array<{
+    __typename: 'PageBlocksHero',
+    headline?: string | null,
+    subtext?: string | null,
+    backgroundImage?: string | null,
+    cta?: { __typename: 'PageBlocksHeroCta', label?: string | null, url?: string | null } | null
+  } | { __typename: 'PageBlocksMission', image?: string | null, imageSide?: string | null, content?: any | null } | {
+    __typename: 'PageBlocksImpactGrid',
+    stats?: Array<{
+      __typename: 'PageBlocksImpactGridStats',
+      value?: string | null,
+      label?: string | null
     } | null> | null
+  } | {
+    __typename: 'PageBlocksDonation',
+    visible?: boolean | null,
+    headline?: string | null,
+    description?: any | null,
+    methods?: Array<{
+      __typename: 'PageBlocksDonationMethods',
+      label?: string | null,
+      value?: string | null,
+      helperText?: string | null
+    } | null> | null
+  } | {
+    __typename: 'PageBlocksEvents',
+    items?: Array<{
+      __typename: 'PageBlocksEventsItems',
+      title?: string | null,
+      date?: string | null,
+      location?: string | null
+    } | null> | null
+  } | {
+    __typename: 'PageBlocksContact',
+    address?: string | null,
+    phone?: string | null,
+    email?: string | null,
+    mapEmbed?: string | null
+  } | null> | null
 };
 
 export type GlobalPartsFragment = { __typename: 'Global', brandColor?: string | null, logo?: string | null, showPlaceholderLogo?: boolean | null, favicon?: string | null, organizationName?: string | null, slogan?: string | null, navigation?: Array<{ __typename: 'GlobalNavigation', label?: string | null, url?: string | null } | null> | null, social?: { __typename: 'GlobalSocial', facebook?: string | null, instagram?: string | null } | null };
@@ -664,65 +664,60 @@ export type PageQueryVariables = Exact<{
 
 
 export type PageQuery = {
-    __typename?: 'Query', page: {
-        __typename: 'Page',
-        id: string,
-        title: string,
-        _sys: {
-            __typename?: 'SystemInfo',
-            filename: string,
-            basename: string,
-            hasReferences?: boolean | null,
-            breadcrumbs: Array<string>,
-            path: string,
-            relativePath: string,
-            extension: string
-        },
-        blocks?: Array<{
-            __typename: 'PageBlocksHero',
-            headline?: string | null,
-            subtext?: string | null,
-            backgroundImage?: string | null,
-            cta?: { __typename: 'PageBlocksHeroCta', label?: string | null, url?: string | null } | null
-        } | {
-            __typename: 'PageBlocksMission',
-            image?: string | null,
-            imageSide?: string | null,
-            content?: any | null
-        } | {
-            __typename: 'PageBlocksImpactGrid',
-            stats?: Array<{
-                __typename: 'PageBlocksImpactGridStats',
-                value?: string | null,
-                label?: string | null
-            } | null> | null
-        } | {
-            __typename: 'PageBlocksDonation',
-            visible?: boolean | null,
-            headline?: string | null,
-            description?: any | null,
-            methods?: Array<{
-                __typename: 'PageBlocksDonationMethods',
-                label?: string | null,
-                value?: string | null,
-                helperText?: string | null
-            } | null> | null
-        } | {
-            __typename: 'PageBlocksEvents',
-            items?: Array<{
-                __typename: 'PageBlocksEventsItems',
-                title?: string | null,
-                date?: string | null,
-                location?: string | null
-            } | null> | null
-        } | {
-            __typename: 'PageBlocksContact',
-            address?: string | null,
-            phone?: string | null,
-            email?: string | null,
-            mapEmbed?: string | null
-        } | null> | null
-    }
+  __typename?: 'Query', page: {
+    __typename: 'Page',
+    id: string,
+    title: string,
+    _sys: {
+      __typename?: 'SystemInfo',
+      filename: string,
+      basename: string,
+      hasReferences?: boolean | null,
+      breadcrumbs: Array<string>,
+      path: string,
+      relativePath: string,
+      extension: string
+    },
+    blocks?: Array<{
+      __typename: 'PageBlocksHero',
+      headline?: string | null,
+      subtext?: string | null,
+      backgroundImage?: string | null,
+      cta?: { __typename: 'PageBlocksHeroCta', label?: string | null, url?: string | null } | null
+    } | { __typename: 'PageBlocksMission', image?: string | null, imageSide?: string | null, content?: any | null } | {
+      __typename: 'PageBlocksImpactGrid',
+      stats?: Array<{
+        __typename: 'PageBlocksImpactGridStats',
+        value?: string | null,
+        label?: string | null
+      } | null> | null
+    } | {
+      __typename: 'PageBlocksDonation',
+      visible?: boolean | null,
+      headline?: string | null,
+      description?: any | null,
+      methods?: Array<{
+        __typename: 'PageBlocksDonationMethods',
+        label?: string | null,
+        value?: string | null,
+        helperText?: string | null
+      } | null> | null
+    } | {
+      __typename: 'PageBlocksEvents',
+      items?: Array<{
+        __typename: 'PageBlocksEventsItems',
+        title?: string | null,
+        date?: string | null,
+        location?: string | null
+      } | null> | null
+    } | {
+      __typename: 'PageBlocksContact',
+      address?: string | null,
+      phone?: string | null,
+      email?: string | null,
+      mapEmbed?: string | null
+    } | null> | null
+  }
 };
 
 export type PageConnectionQueryVariables = Exact<{
@@ -736,78 +731,78 @@ export type PageConnectionQueryVariables = Exact<{
 
 
 export type PageConnectionQuery = {
-    __typename?: 'Query', pageConnection: {
-        __typename?: 'PageConnection',
-        totalCount: number,
-        pageInfo: {
-            __typename?: 'PageInfo',
-            hasPreviousPage: boolean,
-            hasNextPage: boolean,
-            startCursor: string,
-            endCursor: string
+  __typename?: 'Query', pageConnection: {
+    __typename?: 'PageConnection',
+    totalCount: number,
+    pageInfo: {
+      __typename?: 'PageInfo',
+      hasPreviousPage: boolean,
+      hasNextPage: boolean,
+      startCursor: string,
+      endCursor: string
+    },
+    edges?: Array<{
+      __typename?: 'PageConnectionEdges', cursor: string, node?: {
+        __typename: 'Page',
+        id: string,
+        title: string,
+        _sys: {
+          __typename?: 'SystemInfo',
+          filename: string,
+          basename: string,
+          hasReferences?: boolean | null,
+          breadcrumbs: Array<string>,
+          path: string,
+          relativePath: string,
+          extension: string
         },
-        edges?: Array<{
-            __typename?: 'PageConnectionEdges', cursor: string, node?: {
-                __typename: 'Page',
-                id: string,
-                title: string,
-                _sys: {
-                    __typename?: 'SystemInfo',
-                    filename: string,
-                    basename: string,
-                    hasReferences?: boolean | null,
-                    breadcrumbs: Array<string>,
-                    path: string,
-                    relativePath: string,
-                    extension: string
-                },
-                blocks?: Array<{
-                    __typename: 'PageBlocksHero',
-                    headline?: string | null,
-                    subtext?: string | null,
-                    backgroundImage?: string | null,
-                    cta?: { __typename: 'PageBlocksHeroCta', label?: string | null, url?: string | null } | null
-                } | {
-                    __typename: 'PageBlocksMission',
-                    image?: string | null,
-                    imageSide?: string | null,
-                    content?: any | null
-                } | {
-                    __typename: 'PageBlocksImpactGrid',
-                    stats?: Array<{
-                        __typename: 'PageBlocksImpactGridStats',
-                        value?: string | null,
-                        label?: string | null
-                    } | null> | null
-                } | {
-                    __typename: 'PageBlocksDonation',
-                    visible?: boolean | null,
-                    headline?: string | null,
-                    description?: any | null,
-                    methods?: Array<{
-                        __typename: 'PageBlocksDonationMethods',
-                        label?: string | null,
-                        value?: string | null,
-                        helperText?: string | null
-                    } | null> | null
-                } | {
-                    __typename: 'PageBlocksEvents',
-                    items?: Array<{
-                        __typename: 'PageBlocksEventsItems',
-                        title?: string | null,
-                        date?: string | null,
-                        location?: string | null
-                    } | null> | null
-                } | {
-                    __typename: 'PageBlocksContact',
-                    address?: string | null,
-                    phone?: string | null,
-                    email?: string | null,
-                    mapEmbed?: string | null
-                } | null> | null
-            } | null
+        blocks?: Array<{
+          __typename: 'PageBlocksHero',
+          headline?: string | null,
+          subtext?: string | null,
+          backgroundImage?: string | null,
+          cta?: { __typename: 'PageBlocksHeroCta', label?: string | null, url?: string | null } | null
+        } | {
+          __typename: 'PageBlocksMission',
+          image?: string | null,
+          imageSide?: string | null,
+          content?: any | null
+        } | {
+          __typename: 'PageBlocksImpactGrid',
+          stats?: Array<{
+            __typename: 'PageBlocksImpactGridStats',
+            value?: string | null,
+            label?: string | null
+          } | null> | null
+        } | {
+          __typename: 'PageBlocksDonation',
+          visible?: boolean | null,
+          headline?: string | null,
+          description?: any | null,
+          methods?: Array<{
+            __typename: 'PageBlocksDonationMethods',
+            label?: string | null,
+            value?: string | null,
+            helperText?: string | null
+          } | null> | null
+        } | {
+          __typename: 'PageBlocksEvents',
+          items?: Array<{
+            __typename: 'PageBlocksEventsItems',
+            title?: string | null,
+            date?: string | null,
+            location?: string | null
+          } | null> | null
+        } | {
+          __typename: 'PageBlocksContact',
+          address?: string | null,
+          phone?: string | null,
+          email?: string | null,
+          mapEmbed?: string | null
         } | null> | null
-    }
+      } | null
+    } | null> | null
+  }
 };
 
 export type GlobalQueryVariables = Exact<{

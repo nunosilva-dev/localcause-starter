@@ -1,9 +1,9 @@
-import Link from "next/link";
 import "./globals.css";
 import React from 'react';
 import {Inter} from "next/font/google";
 import {client} from "../tina/__generated__/client";
 import {Footer} from "../components/Footer";
+import {Header} from "../components/Header";
 import {Metadata} from 'next';
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -65,31 +65,7 @@ export default async function RootLayout({
         }>
             <body className={`${inter.variable} antialiased`}>
                 <div className="flex flex-col min-h-screen">
-                    <header className="p-4 border-b bg-white">
-                        <div className="max-w-7xl mx-auto flex justify-between items-center">
-                            <Link href="/" className="font-bold text-xl text-primary flex items-center gap-2">
-                                {globalData?.global?.logo ? (
-                                    <img src={globalData.global.logo} alt="Logo" className="h-10" />
-                                ) : (
-                                    <>
-                                        {(globalData?.global?.showPlaceholderLogo !== false) && (
-                                            <img src="/icon.svg" alt="Logo" className="h-10 w-10" />
-                                        )}
-                                        <span>{globalData?.global?.organizationName}</span>
-                                    </>
-                                )}
-                            </Link>
-                            <nav className="hidden md:flex gap-6">
-                                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-                                {globalData?.global?.navigation?.map((nav: any, i: number) => (
-                                    <Link key={i} href={nav?.url || "#"}
-                                        className="text-gray-600 hover:text-primary transition-colors font-medium">
-                                        {nav?.label}
-                                    </Link>
-                                ))}
-                            </nav>
-                        </div>
-                    </header>
+                    <Header data={globalData?.global}/>
 
                     <main className="flex-grow">
                         {children}
