@@ -93,18 +93,6 @@ var config_default = defineConfig({
                     list: true,
                     name: "methods",
                     label: "Donation Methods",
-                    items: [
-                      {
-                        type: "string",
-                        name: "label",
-                        label: "Label (e.g. MBWay)"
-                      },
-                      {
-                        type: "string",
-                        name: "value",
-                        label: "Value (e.g. 912...)"
-                      }
-                    ],
                     fields: [
                       { type: "string", name: "label", label: "Label" },
                       { type: "string", name: "value", label: "Value" },
@@ -153,13 +141,10 @@ var config_default = defineConfig({
           global: true
         },
         fields: [
-          {
-            type: "string",
-            name: "brandColor",
-            label: "Brand Color (Hex)",
-            ui: { component: "color" }
-          },
+          { type: "string", name: "brandColor", label: "Brand Color (Hex)", ui: { component: "color" } },
           { type: "image", name: "logo", label: "Logo" },
+          { type: "boolean", name: "showPlaceholderLogo", label: "Show Placeholder Logo", description: "If no logo is uploaded, show the default 'LC' icon?", ui: { defaultValue: true } },
+          { type: "image", name: "favicon", label: "Favicon (Optional)", description: "Upload a square image (PNG/ICO/SVG) to use as the browser icon." },
           { type: "string", name: "organizationName", label: "Organization Name" },
           { type: "string", name: "slogan", label: "Footer Slogan", description: "Short text below the logo" },
           {

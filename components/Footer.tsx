@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import {ExternalLink, Facebook, Instagram} from "lucide-react";
-import {Global} from "../tina/__generated__/types";
+import { ExternalLink, Facebook, Instagram } from "lucide-react";
+import { Global } from "../tina/__generated__/types";
 
-export const Footer = ({data}: { data: Global }) => {
+export const Footer = ({ data }: { data: Global }) => {
     const orgName = data?.organizationName || "LocalCause Partner";
 
     return (
@@ -25,7 +25,12 @@ export const Footer = ({data}: { data: Global }) => {
                                 />
                             </div>
                         ) : (
-                            <span className="text-xl font-bold text-gray-900">{orgName}</span>
+                            <div className="flex items-center gap-2 mb-2">
+                                {(data?.showPlaceholderLogo !== false) && (
+                                    <Image src="/icon.svg" alt={orgName} width={40} height={40} className="h-10 w-10" />
+                                )}
+                                <span className="text-xl font-bold text-gray-900">{orgName}</span>
+                            </div>
                         )}
                         <p className="text-sm text-gray-600 mt-4 leading-relaxed max-w-sm">
                             {data?.slogan || "Connecting our community through digital infrastructure."}
@@ -48,7 +53,7 @@ export const Footer = ({data}: { data: Global }) => {
                                             className="text-gray-400 hover:text-[#1877F2] transition-all p-3 rounded-full hover:bg-blue-50"
                                             aria-label="Facebook"
                                         >
-                                            <Facebook size={24}/>
+                                            <Facebook size={24} />
                                         </a>
                                     )}
                                     {data?.social?.instagram && (
@@ -59,7 +64,7 @@ export const Footer = ({data}: { data: Global }) => {
                                             className="text-gray-400 hover:text-[#E4405F] transition-all p-3 rounded-full hover:bg-pink-50"
                                             aria-label="Instagram"
                                         >
-                                            <Instagram size={24}/>
+                                            <Instagram size={24} />
                                         </a>
                                     )}
                                 </div>
@@ -75,7 +80,7 @@ export const Footer = ({data}: { data: Global }) => {
                         >
                             Staff Login
                             <ExternalLink size={14}
-                                          className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"/>
+                                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                         </Link>
                     </div>
                 </div>

@@ -283,6 +283,8 @@ type GlobalSocial {
 type Global implements Node & Document {
   brandColor: String
   logo: String
+  showPlaceholderLogo: Boolean
+  favicon: String
   organizationName: String
   slogan: String
   navigation: [GlobalNavigation]
@@ -305,6 +307,8 @@ input GlobalSocialFilter {
 input GlobalFilter {
   brandColor: StringFilter
   logo: ImageFilter
+  showPlaceholderLogo: BooleanFilter
+  favicon: ImageFilter
   organizationName: StringFilter
   slogan: StringFilter
   navigation: GlobalNavigationFilter
@@ -428,6 +432,8 @@ input GlobalSocialMutation {
 input GlobalMutation {
   brandColor: String
   logo: String
+  showPlaceholderLogo: Boolean
+  favicon: String
   organizationName: String
   slogan: String
   navigation: [GlobalNavigationMutation]

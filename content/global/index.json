@@ -1,5 +1,6 @@
 {
   "brandColor": "#000000",
+  "showPlaceholderLogo": false,
   "organizationName": "LocalCause",
   "navigation": [
     {

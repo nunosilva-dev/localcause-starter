@@ -392,6 +392,8 @@ export type Global = Node & Document & {
   __typename?: 'Global';
   brandColor?: Maybe<Scalars['String']['output']>;
   logo?: Maybe<Scalars['String']['output']>;
+  showPlaceholderLogo?: Maybe<Scalars['Boolean']['output']>;
+  favicon?: Maybe<Scalars['String']['output']>;
   organizationName?: Maybe<Scalars['String']['output']>;
   slogan?: Maybe<Scalars['String']['output']>;
   navigation?: Maybe<Array<Maybe<GlobalNavigation>>>;
@@ -414,6 +416,8 @@ export type GlobalSocialFilter = {
 export type GlobalFilter = {
   brandColor?: InputMaybe<StringFilter>;
   logo?: InputMaybe<ImageFilter>;
+  showPlaceholderLogo?: InputMaybe<BooleanFilter>;
+  favicon?: InputMaybe<ImageFilter>;
   organizationName?: InputMaybe<StringFilter>;
   slogan?: InputMaybe<StringFilter>;
   navigation?: InputMaybe<GlobalNavigationFilter>;
@@ -597,6 +601,8 @@ export type GlobalSocialMutation = {
 export type GlobalMutation = {
   brandColor?: InputMaybe<Scalars['String']['input']>;
   logo?: InputMaybe<Scalars['String']['input']>;
+  showPlaceholderLogo?: InputMaybe<Scalars['Boolean']['input']>;
+  favicon?: InputMaybe<Scalars['String']['input']>;
   organizationName?: InputMaybe<Scalars['String']['input']>;
   slogan?: InputMaybe<Scalars['String']['input']>;
   navigation?: InputMaybe<Array<InputMaybe<GlobalNavigationMutation>>>;
@@ -605,7 +611,7 @@ export type GlobalMutation = {
 
 export type PagePartsFragment = { __typename: 'Page', blocks?: Array<{ __typename: 'PageBlocksHero', headline?: string | null, subtext?: string | null, backgroundImage?: string | null, cta?: { __typename: 'PageBlocksHeroCta', label?: string | null, url?: string | null } | null } | { __typename: 'PageBlocksMission', image?: string | null, imageSide?: string | null, content?: any | null } | { __typename: 'PageBlocksImpactGrid', stats?: Array<{ __typename: 'PageBlocksImpactGridStats', value?: string | null, label?: string | null } | null> | null } | { __typename: 'PageBlocksDonation', visible?: boolean | null, headline?: string | null, description?: any | null, methods?: Array<{ __typename: 'PageBlocksDonationMethods', label?: string | null, value?: string | null, helperText?: string | null } | null> | null } | { __typename: 'PageBlocksEvents', items?: Array<{ __typename: 'PageBlocksEventsItems', title?: string | null, date?: string | null, location?: string | null } | null> | null } | { __typename: 'PageBlocksContact', address?: string | null, phone?: string | null, email?: string | null, mapEmbed?: string | null } | null> | null };
 
-export type GlobalPartsFragment = { __typename: 'Global', brandColor?: string | null, logo?: string | null, organizationName?: string | null, slogan?: string | null, navigation?: Array<{ __typename: 'GlobalNavigation', label?: string | null, url?: string | null } | null> | null, social?: { __typename: 'GlobalSocial', facebook?: string | null, instagram?: string | null } | null };
+export type GlobalPartsFragment = { __typename: 'Global', brandColor?: string | null, logo?: string | null, showPlaceholderLogo?: boolean | null, favicon?: string | null, organizationName?: string | null, slogan?: string | null, navigation?: Array<{ __typename: 'GlobalNavigation', label?: string | null, url?: string | null } | null> | null, social?: { __typename: 'GlobalSocial', facebook?: string | null, instagram?: string | null } | null };
 
 export type PageQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -631,7 +637,7 @@ export type GlobalQueryVariables = Exact<{
 }>;
 
 
-export type GlobalQuery = { __typename?: 'Query', global: { __typename: 'Global', id: string, brandColor?: string | null, logo?: string | null, organizationName?: string | null, slogan?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, navigation?: Array<{ __typename: 'GlobalNavigation', label?: string | null, url?: string | null } | null> | null, social?: { __typename: 'GlobalSocial', facebook?: string | null, instagram?: string | null } | null } };
+export type GlobalQuery = { __typename?: 'Query', global: { __typename: 'Global', id: string, brandColor?: string | null, logo?: string | null, showPlaceholderLogo?: boolean | null, favicon?: string | null, organizationName?: string | null, slogan?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, navigation?: Array<{ __typename: 'GlobalNavigation', label?: string | null, url?: string | null } | null> | null, social?: { __typename: 'GlobalSocial', facebook?: string | null, instagram?: string | null } | null } };
 
 export type GlobalConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -643,7 +649,7 @@ export type GlobalConnectionQueryVariables = Exact<{
 }>;
 
 
-export type GlobalConnectionQuery = { __typename?: 'Query', globalConnection: { __typename?: 'GlobalConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'GlobalConnectionEdges', cursor: string, node?: { __typename: 'Global', id: string, brandColor?: string | null, logo?: string | null, organizationName?: string | null, slogan?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, navigation?: Array<{ __typename: 'GlobalNavigation', label?: string | null, url?: string | null } | null> | null, social?: { __typename: 'GlobalSocial', facebook?: string | null, instagram?: string | null } | null } | null } | null> | null } };
+export type GlobalConnectionQuery = { __typename?: 'Query', globalConnection: { __typename?: 'GlobalConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'GlobalConnectionEdges', cursor: string, node?: { __typename: 'Global', id: string, brandColor?: string | null, logo?: string | null, showPlaceholderLogo?: boolean | null, favicon?: string | null, organizationName?: string | null, slogan?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, navigation?: Array<{ __typename: 'GlobalNavigation', label?: string | null, url?: string | null } | null> | null, social?: { __typename: 'GlobalSocial', facebook?: string | null, instagram?: string | null } | null } | null } | null> | null } };
 
 export const PagePartsFragmentDoc = gql`
     fragment PageParts on Page {
@@ -705,6 +711,8 @@ export const GlobalPartsFragmentDoc = gql`
   __typename
   brandColor
   logo
+  showPlaceholderLogo
+  favicon
   organizationName
   slogan
   navigation {
