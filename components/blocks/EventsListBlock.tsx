@@ -12,7 +12,8 @@ export const EventsListBlock = ({data}: { data: PageBlocksEvents }) => {
                         <div
                             className="bg-primary/10 text-primary p-4 rounded-lg flex flex-col items-center justify-center min-w-[100px]">
                             <Calendar className="w-6 h-6 mb-1"/>
-                            <span className="font-bold">{new Date(event?.date).toLocaleDateString()}</span>
+                            <span
+                                className="font-bold">{event?.date ? new Date(event.date).toLocaleDateString() : "Date TBA"}</span>
                         </div>
                         <div className="flex-1">
                             <h3 className="text-xl font-bold mb-2">{event?.title}</h3>

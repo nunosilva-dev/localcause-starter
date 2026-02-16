@@ -1,7 +1,7 @@
 "use client";
 
 import {useTina} from "tinacms/dist/react";
-import {PageQuery} from "../../tina/__generated__/types";
+import {PageBlocks, PageQuery} from "../../tina/__generated__/types";
 import {Blocks} from "../../components/blocks";
 
 interface ClientPageProps {
@@ -19,7 +19,7 @@ export const ClientPage = (props: ClientPageProps) => {
 
     return (
         <div className="min-h-screen">
-            <Blocks blocks={data.page.blocks}/>
+            <Blocks blocks={(data.page.blocks || []) as PageBlocks[]}/>
         </div>
     );
 };

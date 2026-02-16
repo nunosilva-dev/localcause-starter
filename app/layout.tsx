@@ -1,13 +1,12 @@
 import Link from "next/link";
 import "./globals.css";
 import React from 'react';
-import { Inter } from "next/font/google";
-import { client } from "../tina/__generated__/client";
-import { Footer } from "../components/Footer";
+import {Inter} from "next/font/google";
+import {client} from "../tina/__generated__/client";
+import {Footer} from "../components/Footer";
+import {Metadata} from 'next';
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-
-import { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
     let globalData;
@@ -81,6 +80,7 @@ export default async function RootLayout({
                                 )}
                             </Link>
                             <nav className="hidden md:flex gap-6">
+                                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                                 {globalData?.global?.navigation?.map((nav: any, i: number) => (
                                     <Link key={i} href={nav?.url || "#"}
                                         className="text-gray-600 hover:text-primary transition-colors font-medium">

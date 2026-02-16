@@ -11,7 +11,7 @@ export const HeroBlock = ({data}: { data: PageBlocksHero }) => {
             <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
                 <h1 className="text-5xl font-bold mb-6 drop-shadow-lg">{data.headline}</h1>
                 <p className="text-xl mb-8 opacity-95 drop-shadow-md">{data.subtext}</p>
-                {data.cta && (
+                {data.cta?.url && (
                     <a href={data.cta.url}
                        className="bg-white text-primary px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors shadow-lg">
                         {data.cta.label}

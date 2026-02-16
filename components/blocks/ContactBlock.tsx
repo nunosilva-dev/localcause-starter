@@ -31,7 +31,7 @@ export const ContactBlock = ({data}: { data: PageBlocksContact }) => {
                 <div className="flex-1 h-[400px] rounded-xl overflow-hidden bg-gray-800">
                     {/* Use iframe with simplified attributes for safety/lint */}
                     <iframe
-                        src={data.mapEmbed}
+                        src={data.mapEmbed ?? ""}
                         width="100%"
                         height="100%"
                         style={{border: 0}}

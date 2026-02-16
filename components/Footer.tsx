@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ExternalLink, Facebook, Instagram } from "lucide-react";
-import { Global } from "../tina/__generated__/types";
+import {ExternalLink, Facebook, Instagram} from "lucide-react";
 
-export const Footer = ({ data }: { data: Global }) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const Footer = ({data}: { data: any }) => {
     const orgName = data?.organizationName || "LocalCause Partner";
 
     return (
