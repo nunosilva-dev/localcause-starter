@@ -1,0 +1,71 @@
+fragment PageParts on Page {
+  __typename
+  blocks {
+    __typename
+    ... on PageBlocksHero {
+      headline
+      subtext
+      backgroundImage
+      cta {
+        __typename
+        label
+        url
+      }
+    }
+    ... on PageBlocksMission {
+      image
+      imageSide
+      content
+    }
+    ... on PageBlocksImpactGrid {
+      stats {
+        __typename
+        value
+        label
+      }
+    }
+    ... on PageBlocksDonation {
+      visible
+      headline
+      description
+      methods {
+        __typename
+        label
+        value
+        helperText
+      }
+    }
+    ... on PageBlocksEvents {
+      items {
+        __typename
+        title
+        date
+        location
+      }
+    }
+    ... on PageBlocksContact {
+      address
+      phone
+      email
+      mapEmbed
+    }
+  }
+}
+
+fragment GlobalParts on Global {
+  __typename
+  brandColor
+  logo
+  organizationName
+  slogan
+  navigation {
+    __typename
+    label
+    url
+  }
+  social {
+    __typename
+    facebook
+    instagram
+  }
+}

@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LocalCause | Digital Homes for Local Heroes
 
-## Getting Started
+> **"Because those who help everyone else deserve a home too."**
 
-First, run the development server:
+## 🌍 The Mission
+
+Local non-profit organizations are the backbone of our communities. They feed the hungry, rescue animals, support the
+elderly, and clean our environment. Yet, many of them struggle with a fundamental digital challenge: **Visibility**.
+
+Existing website solutions are often:
+
+* **Too Expensive**: Recurring monthly fees for Wix/Squarespace eat into donation funds.
+* **Too Complex**: WordPress requires constant maintenance, security updates, and plugins.
+* **Too Technical**: Custom code is unmaintainable by volunteers.
+
+**LocalCause** solves this by providing a **Digital Infrastructure Factory** for local heroes.
+
+---
+
+## 🏗️ The Solution: "Zero-Cost, Zero-Maintenance"
+
+This project is a **White Label Website Starter** designed specifically for non-profits. It is built on a modern "
+Git-backed" architecture that ensures:
+
+1. **Zero Hosting Costs**: Deploys to Vercel's Hobby Tier (free forever for non-profit use).
+2. **Zero Maintenance**: No database to manage, no plugins to update. It is a static site with a visual editing layer.
+3. **100% Editable**: Utilizing **TinaCMS**, volunteers can edit text, upload images, and change colors directly on the
+   page—no coding required.
+
+### Tech Stack
+
+* **Framework**: Next.js 15 (App Router)
+* **CMS**: TinaCMS (Git-backed content management)
+* **Styling**: Tailwind CSS
+* **Icons**: Lucide React
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+This project requires **Node.js v20 (LTS)**. An `.nvmrc` file is included for convenience.
+
+If you use **nvm**, simply run:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+nvm use
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+If you are on macOS and encounter errors with `better-sqlite3`, ensure you have the Xcode Command Line Tools installed:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+xcode-select --install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Local Development
 
-## Learn More
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/nunosilva-dev/localcause-starter.git
+   cd localcause-starter
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Run the Development Server**
+   ```bash
+   npm run dev
+   ```
+   This starts both the Next.js app and the TinaCMS local server.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Access the Admin Interface**
+   Open [http://localhost:3000/admin](http://localhost:3000/admin) to start editing content locally.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ☁️ Production & Tina Cloud
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To enable visual editing for your organization on the live website:
+
+1. **Create a Tina Cloud Project**: Connect your GitHub repository at [app.tina.io](https://app.tina.io).
+2. **Environment Variables**: Add your `NEXT_PUBLIC_TINA_CLIENT_ID` and `TINA_TOKEN` to your Vercel project.
+3. **Invite Editors**: Invite the non-profit's staff as "Editors" in the Tina Cloud dashboard so they can manage the
+   site without technical knowledge.
+
+---
+
+## 🎨 Customization Guide
+
+This starter is a **White Label** product. You can transform it for *any* organization in minutes.
+
+### 1. Brand Identity
+
+Go to **Global Settings** in the Admin panel:
+
+* **Brand Color**: Pick a HEX color. The entire site (buttons, highlights, links) will instantly adapt.
+* **Logo**: Upload the organization's logo.
+* **Organization Name**: Used in footer and metadata.
+
+### 2. Donation Block
+
+The Donation section is dynamic and high-contrast:
+
+* **Toggle Visibility**: Turn it off if the org isn't ready to accept donations.
+* **Methods**: Add unlimited donation methods (IBAN, MBWay, PayPal, etc.).
+
+---
+
+*Built with ❤️ by the LocalCause Community. Based in Portugal.*
