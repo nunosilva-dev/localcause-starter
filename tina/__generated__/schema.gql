@@ -150,6 +150,7 @@ type PageBlocksContact {
 union PageBlocks = PageBlocksHero | PageBlocksMission | PageBlocksImpactGrid | PageBlocksDonation | PageBlocksEvents | PageBlocksContact
 
 type Page implements Node & Document {
+  title: String!
   blocks: [PageBlocks]
   id: ID!
   _sys: SystemInfo!
@@ -256,6 +257,7 @@ input PageBlocksFilter {
 }
 
 input PageFilter {
+  title: StringFilter
   blocks: PageBlocksFilter
 }
 
@@ -416,6 +418,7 @@ input PageBlocksMutation {
 }
 
 input PageMutation {
+  title: String
   blocks: [PageBlocksMutation]
 }
 

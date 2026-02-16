@@ -1,9 +1,19 @@
-import { defineConfig } from "tinacms";
+import {defineConfig} from "tinacms";
+
+// Dynamic branch logic for Vercel and local development
+const branch =
+    process.env.NEXT_PUBLIC_TINA_BRANCH ||
+    process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF ||
+    process.env.HEAD ||
+    "main";
 
 export default defineConfig({
-    branch: "main",
+    branch,
+
+    // These are pulled from the environment variables defined in Vercel
     clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
     token: process.env.TINA_TOKEN,
+
     build: {
         outputFolder: "admin",
         publicFolder: "public",
@@ -21,7 +31,24 @@ export default defineConfig({
                 label: "Pages",
                 path: "content/pages",
                 format: "md",
+                // Visual Editing Router: Directs the editor to the correct live preview URL
+                ui: {
+                    router: ({document}) => {
+                        if (document._sys.filename === "home") {
+                            return "/";
+                        }
+                        return `/${document._sys.filename}`;
+                    },
+                },
                 fields: [
+                    {
+                        type: "string",
+                        name: "title",
+                        label: "Page Title",
+                        isTitle: true,
+                        required: true,
+                        description: "Used for the browser tab title and SEO.",
+                    },
                     {
                         type: "object",
                         list: true,
@@ -48,14 +75,15 @@ export default defineConfig({
                             },
                             {
                                 name: "mission",
-                                label: "Mission",
+                                label: "Mission / Content",
                                 fields: [
                                     { type: "image", name: "image", label: "Image" },
                                     {
                                         type: "string",
                                         name: "imageSide",
                                         label: "Image Side",
-                                        options: ["left", "right"]
+                                        options: ["left", "right"],
+                                        ui: {defaultValue: "left"}
                                     },
                                     { type: "rich-text", name: "content", label: "Content" },
                                 ],
@@ -69,6 +97,12 @@ export default defineConfig({
                                         list: true,
                                         name: "stats",
                                         label: "Stats",
+                                        // Shows the label in the sidebar list (e.g. "Dogs Saved")
+                                        ui: {
+                                            itemProps: (item) => {
+                                                return {label: item?.label || "New Stat"}
+                                            }
+                                        },
                                         fields: [
                                             { type: "string", name: "value", label: "Value (e.g. 50)" },
                                             { type: "string", name: "label", label: "Label (e.g. Dogs Saved)" },
@@ -93,9 +127,14 @@ export default defineConfig({
                                         list: true,
                                         name: "methods",
                                         label: "Donation Methods",
+                                        ui: {
+                                            itemProps: (item) => {
+                                                return {label: item?.label || "New Method"}
+                                            }
+                                        },
                                         fields: [
-                                            { type: "string", name: "label", label: "Label" },
-                                            { type: "string", name: "value", label: "Value" },
+                                            {type: "string", name: "label", label: "Label (e.g. MBWay)"},
+                                            {type: "string", name: "value", label: "Value (e.g. 912...)"},
                                             { type: "string", name: "helperText", label: "Helper Text (optional)" },
                                         ],
                                     },
@@ -110,6 +149,11 @@ export default defineConfig({
                                         list: true,
                                         name: "items",
                                         label: "Events",
+                                        ui: {
+                                            itemProps: (item) => {
+                                                return {label: item?.title || "New Event"}
+                                            }
+                                        },
                                         fields: [
                                             { type: "string", name: "title", label: "Event Title" },
                                             { type: "datetime", name: "date", label: "Date" },
@@ -139,6 +183,11 @@ export default defineConfig({
                 format: "json",
                 ui: {
                     global: true,
+                    // Protects the global settings from accidental deletion
+                    allowedActions: {
+                        create: false,
+                        delete: false,
+                    },
                 },
                 fields: [
                     { type: "string", name: "brandColor", label: "Brand Color (Hex)", ui: { component: "color" } },
@@ -152,6 +201,11 @@ export default defineConfig({
                         list: true,
                         name: "navigation",
                         label: "Navigation",
+                        ui: {
+                            itemProps: (item) => {
+                                return {label: item?.label || "New Link"}
+                            }
+                        },
                         fields: [
                             { type: "string", name: "label", label: "Label" },
                             { type: "string", name: "url", label: "URL" },
