@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import {ExternalLink, Facebook, Instagram} from "lucide-react";
+import { ExternalLink, Facebook, Instagram } from "lucide-react";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const Footer = ({data}: { data: any }) => {
+export const Footer = ({ data }: { data: any }) => {
     const orgName = data?.organizationName || "LocalCause Partner";
 
     return (
@@ -32,12 +32,13 @@ export const Footer = ({data}: { data: any }) => {
                                 <span className="text-xl font-bold text-gray-900">{orgName}</span>
                             </div>
                         )}
-                        <p className="text-sm text-gray-600 mt-4 leading-relaxed max-w-sm">
-                            {data?.slogan || "Connecting our community through digital infrastructure."}
-                        </p>
+                        {data?.slogan && (
+                            <p className="text-sm text-gray-600 mt-4 leading-relaxed max-w-sm">
+                                {data.slogan}
+                            </p>
+                        )}
                     </div>
 
-                    {/* 2. Social Section - Centered */}
                     {/* 2. Social Section - Centered */}
                     <div className="flex flex-col items-center justify-center space-y-4">
                         {(data?.social?.facebook || data?.social?.instagram) && (
