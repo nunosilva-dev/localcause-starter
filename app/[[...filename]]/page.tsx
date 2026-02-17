@@ -1,5 +1,32 @@
-import {client} from "../../tina/__generated__/client";
-import {ClientPage} from "./client-page";
+import { Metadata } from 'next';
+import { client } from "../../tina/__generated__/client";
+import { ClientPage } from "./client-page";
+
+export async function generateMetadata(props: {
+    params: Promise<{ filename: string[] }>;
+}): Promise<Metadata> {
+    const params = await props.params;
+    const filename = params.filename ? params.filename.join("/") : "home";
+    let data = null;
+
+    try {
+        const res = await client.queries.page({
+            relativePath: `${filename}.md`,
+        });
+        data = res.data;
+    } catch (e) {
+        return {};
+    }
+
+    const title = data?.page?.title;
+
+    return {
+        title: title,
+        openGraph: {
+            title: title,
+        },
+    };
+}
 
 export default async function Page(props: {
     params: Promise<{ filename: string[] }>;
@@ -22,7 +49,7 @@ export default async function Page(props: {
         return <div className="p-20 text-center">Page not found or Tina not initialized.</div>
     }
 
-    return <ClientPage data={data} query={query} variables={variables}/>;
+    return <ClientPage data={data} query={query} variables={variables} />;
 }
 
 // Ensure static generation for known pages

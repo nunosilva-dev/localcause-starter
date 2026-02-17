@@ -1,4 +1,4 @@
-import {defineConfig} from "tinacms";
+import { defineConfig } from "tinacms";
 
 // Dynamic branch logic for Vercel and local development
 const branch =
@@ -33,7 +33,7 @@ export default defineConfig({
                 format: "md",
                 // Visual Editing Router: Directs the editor to the correct live preview URL
                 ui: {
-                    router: ({document}) => {
+                    router: ({ document }) => {
                         if (document._sys.filename === "home") {
                             return "/";
                         }
@@ -83,7 +83,7 @@ export default defineConfig({
                                         name: "imageSide",
                                         label: "Image Side",
                                         options: ["left", "right"],
-                                        ui: {defaultValue: "left"}
+                                        ui: { defaultValue: "left" }
                                     },
                                     { type: "rich-text", name: "content", label: "Content" },
                                 ],
@@ -100,7 +100,7 @@ export default defineConfig({
                                         // Shows the label in the sidebar list (e.g. "Dogs Saved")
                                         ui: {
                                             itemProps: (item) => {
-                                                return {label: item?.label || "New Stat"}
+                                                return { label: item?.label || "New Stat" }
                                             }
                                         },
                                         fields: [
@@ -129,12 +129,12 @@ export default defineConfig({
                                         label: "Donation Methods",
                                         ui: {
                                             itemProps: (item) => {
-                                                return {label: item?.label || "New Method"}
+                                                return { label: item?.label || "New Method" }
                                             }
                                         },
                                         fields: [
-                                            {type: "string", name: "label", label: "Label (e.g. MBWay)"},
-                                            {type: "string", name: "value", label: "Value (e.g. 912...)"},
+                                            { type: "string", name: "label", label: "Label (e.g. MBWay)" },
+                                            { type: "string", name: "value", label: "Value (e.g. 912...)" },
                                             { type: "string", name: "helperText", label: "Helper Text (optional)" },
                                         ],
                                     },
@@ -151,7 +151,7 @@ export default defineConfig({
                                         label: "Events",
                                         ui: {
                                             itemProps: (item) => {
-                                                return {label: item?.title || "New Event"}
+                                                return { label: item?.title || "New Event" }
                                             }
                                         },
                                         fields: [
@@ -196,6 +196,7 @@ export default defineConfig({
                     { type: "image", name: "favicon", label: "Favicon (Optional)", description: "Upload a square image (PNG/ICO/SVG) to use as the browser icon." },
                     { type: "string", name: "organizationName", label: "Organization Name" },
                     { type: "string", name: "slogan", label: "Footer Slogan", description: "Short text below the logo" },
+                    { type: "string", name: "locale", label: "Site Locale", description: "e.g. en_US, pt_PT", ui: { defaultValue: "en_US" } },
                     {
                         type: "object",
                         list: true,
@@ -203,7 +204,7 @@ export default defineConfig({
                         label: "Navigation",
                         ui: {
                             itemProps: (item) => {
-                                return {label: item?.label || "New Link"}
+                                return { label: item?.label || "New Link" }
                             }
                         },
                         fields: [

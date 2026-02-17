@@ -1,10 +1,9 @@
 // tina/config.ts
-import {defineConfig} from "tinacms";
-
+import { defineConfig } from "tinacms";
 var branch = process.env.NEXT_PUBLIC_TINA_BRANCH || process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF || process.env.HEAD || "main";
 var config_default = defineConfig({
-    branch,
-    // These are pulled from the environment variables defined in Vercel
+  branch,
+  // These are pulled from the environment variables defined in Vercel
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
   token: process.env.TINA_TOKEN,
   build: {
@@ -24,25 +23,25 @@ var config_default = defineConfig({
         label: "Pages",
         path: "content/pages",
         format: "md",
-          // Visual Editing Router: Directs the editor to the correct live preview URL
-          ui: {
-              router: ({document}) => {
-                  if (document._sys.filename === "home") {
-                      return "/";
-                  }
-                  return `/${document._sys.filename}`;
-              }
-          },
+        // Visual Editing Router: Directs the editor to the correct live preview URL
+        ui: {
+          router: ({ document }) => {
+            if (document._sys.filename === "home") {
+              return "/";
+            }
+            return `/${document._sys.filename}`;
+          }
+        },
         fields: [
           {
-              type: "string",
-              name: "title",
-              label: "Page Title",
-              isTitle: true,
-              required: true,
-              description: "Used for the browser tab title and SEO."
+            type: "string",
+            name: "title",
+            label: "Page Title",
+            isTitle: true,
+            required: true,
+            description: "Used for the browser tab title and SEO."
           },
-            {
+          {
             type: "object",
             list: true,
             name: "blocks",
@@ -68,15 +67,15 @@ var config_default = defineConfig({
               },
               {
                 name: "mission",
-                  label: "Mission / Content",
+                label: "Mission / Content",
                 fields: [
                   { type: "image", name: "image", label: "Image" },
                   {
                     type: "string",
                     name: "imageSide",
                     label: "Image Side",
-                      options: ["left", "right"],
-                      ui: {defaultValue: "left"}
+                    options: ["left", "right"],
+                    ui: { defaultValue: "left" }
                   },
                   { type: "rich-text", name: "content", label: "Content" }
                 ]
@@ -90,12 +89,12 @@ var config_default = defineConfig({
                     list: true,
                     name: "stats",
                     label: "Stats",
-                      // Shows the label in the sidebar list (e.g. "Dogs Saved")
-                      ui: {
-                          itemProps: (item) => {
-                              return {label: item?.label || "New Stat"};
-                          }
-                      },
+                    // Shows the label in the sidebar list (e.g. "Dogs Saved")
+                    ui: {
+                      itemProps: (item) => {
+                        return { label: item?.label || "New Stat" };
+                      }
+                    },
                     fields: [
                       { type: "string", name: "value", label: "Value (e.g. 50)" },
                       { type: "string", name: "label", label: "Label (e.g. Dogs Saved)" }
@@ -120,14 +119,14 @@ var config_default = defineConfig({
                     list: true,
                     name: "methods",
                     label: "Donation Methods",
-                      ui: {
-                          itemProps: (item) => {
-                              return {label: item?.label || "New Method"};
-                          }
-                      },
+                    ui: {
+                      itemProps: (item) => {
+                        return { label: item?.label || "New Method" };
+                      }
+                    },
                     fields: [
-                        {type: "string", name: "label", label: "Label (e.g. MBWay)"},
-                        {type: "string", name: "value", label: "Value (e.g. 912...)"},
+                      { type: "string", name: "label", label: "Label (e.g. MBWay)" },
+                      { type: "string", name: "value", label: "Value (e.g. 912...)" },
                       { type: "string", name: "helperText", label: "Helper Text (optional)" }
                     ]
                   }
@@ -142,11 +141,11 @@ var config_default = defineConfig({
                     list: true,
                     name: "items",
                     label: "Events",
-                      ui: {
-                          itemProps: (item) => {
-                              return {label: item?.title || "New Event"};
-                          }
-                      },
+                    ui: {
+                      itemProps: (item) => {
+                        return { label: item?.title || "New Event" };
+                      }
+                    },
                     fields: [
                       { type: "string", name: "title", label: "Event Title" },
                       { type: "datetime", name: "date", label: "Date" },
@@ -175,12 +174,12 @@ var config_default = defineConfig({
         path: "content/global",
         format: "json",
         ui: {
-            global: true,
-            // Protects the global settings from accidental deletion
-            allowedActions: {
-                create: false,
-                delete: false
-            }
+          global: true,
+          // Protects the global settings from accidental deletion
+          allowedActions: {
+            create: false,
+            delete: false
+          }
         },
         fields: [
           { type: "string", name: "brandColor", label: "Brand Color (Hex)", ui: { component: "color" } },
@@ -189,16 +188,17 @@ var config_default = defineConfig({
           { type: "image", name: "favicon", label: "Favicon (Optional)", description: "Upload a square image (PNG/ICO/SVG) to use as the browser icon." },
           { type: "string", name: "organizationName", label: "Organization Name" },
           { type: "string", name: "slogan", label: "Footer Slogan", description: "Short text below the logo" },
+          { type: "string", name: "locale", label: "Site Locale", description: "e.g. en_US, pt_PT", ui: { defaultValue: "en_US" } },
           {
             type: "object",
             list: true,
             name: "navigation",
             label: "Navigation",
-              ui: {
-                  itemProps: (item) => {
-                      return {label: item?.label || "New Link"};
-                  }
-              },
+            ui: {
+              itemProps: (item) => {
+                return { label: item?.label || "New Link" };
+              }
+            },
             fields: [
               { type: "string", name: "label", label: "Label" },
               { type: "string", name: "url", label: "URL" }

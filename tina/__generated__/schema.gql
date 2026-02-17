@@ -289,6 +289,7 @@ type Global implements Node & Document {
   favicon: String
   organizationName: String
   slogan: String
+  locale: String
   navigation: [GlobalNavigation]
   social: GlobalSocial
   id: ID!
@@ -313,6 +314,7 @@ input GlobalFilter {
   favicon: ImageFilter
   organizationName: StringFilter
   slogan: StringFilter
+  locale: StringFilter
   navigation: GlobalNavigationFilter
   social: GlobalSocialFilter
 }
@@ -439,6 +441,7 @@ input GlobalMutation {
   favicon: String
   organizationName: String
   slogan: String
+  locale: String
   navigation: [GlobalNavigationMutation]
   social: GlobalSocialMutation
 }

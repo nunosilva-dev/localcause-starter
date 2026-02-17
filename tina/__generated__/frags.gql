@@ -61,6 +61,7 @@ fragment GlobalParts on Global {
   favicon
   organizationName
   slogan
+  locale
   navigation {
     __typename
     label
