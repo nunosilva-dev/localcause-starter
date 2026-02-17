@@ -28,6 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
     const locale = (globalData?.global as any)?.locale || 'en_US';
 
     return {
+        metadataBase: new URL(process.env.NEXT_PUBLIC_URL || 'http://localhost:3000'),
         title: {
             default: globalData?.global?.organizationName || "LocalCause Site",
             template: `%s | ${globalData?.global?.organizationName || "LocalCause Site"}`

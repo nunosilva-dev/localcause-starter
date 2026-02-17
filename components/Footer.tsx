@@ -15,23 +15,7 @@ export const Footer = ({ data }: { data: any }) => {
 
                     {/* 1. Brand Section */}
                     <div className="flex flex-col items-center md:items-start text-center md:text-left">
-                        {data?.logo ? (
-                            <div className="relative h-12 w-40 mb-2">
-                                <Image
-                                    src={data.logo}
-                                    alt={orgName}
-                                    fill
-                                    className="object-contain object-left"
-                                />
-                            </div>
-                        ) : (
-                            <div className="flex items-center gap-2 mb-2">
-                                {(data?.showPlaceholderLogo !== false) && (
-                                    <Image src="/icon.svg" alt={orgName} width={40} height={40} className="h-10 w-10" />
-                                )}
-                                <span className="text-xl font-bold text-gray-900">{orgName}</span>
-                            </div>
-                        )}
+                        <span className="text-xl font-bold text-gray-900">{orgName}</span>
                         {data?.slogan && (
                             <p className="text-sm text-gray-600 mt-4 leading-relaxed max-w-sm">
                                 {data.slogan}

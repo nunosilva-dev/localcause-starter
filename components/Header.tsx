@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import React, {useState} from "react";
-import {Menu, X} from "lucide-react";
+import React, { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const Header = ({data}: { data: any }) => {
+export const Header = ({ data }: { data: any }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -17,15 +17,15 @@ export const Header = ({data}: { data: any }) => {
             <div className="max-w-7xl mx-auto flex justify-between items-center">
                 <Link href="/" className="font-bold text-xl text-primary flex items-center gap-2">
                     {data?.logo ? (
-                        <img src={data.logo} alt="Logo" className="h-10"/>
+                        <img src={data.logo} alt="Logo" className="h-10" />
                     ) : (
                         <>
                             {(data?.showPlaceholderLogo !== false) && (
-                                <img src="/icon.svg" alt="Logo" className="h-10 w-10"/>
+                                <img src="/icon.svg" alt="Logo" className="h-10 w-10" />
                             )}
-                            <span>{data?.organizationName}</span>
                         </>
                     )}
+                    <span>{data?.organizationName}</span>
                 </Link>
 
                 {/* Desktop Navigation */}
@@ -33,7 +33,7 @@ export const Header = ({data}: { data: any }) => {
                     {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                     {data?.navigation?.map((nav: any, i: number) => (
                         <Link key={i} href={nav?.url || "#"}
-                              className="text-gray-600 hover:text-primary transition-colors font-medium">
+                            className="text-gray-600 hover:text-primary transition-colors font-medium">
                             {nav?.label}
                         </Link>
                     ))}
@@ -45,7 +45,7 @@ export const Header = ({data}: { data: any }) => {
                     onClick={toggleMenu}
                     aria-label="Toggle menu"
                 >
-                    {isMenuOpen ? <X size={24}/> : <Menu size={24}/>}
+                    {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
             </div>
 
