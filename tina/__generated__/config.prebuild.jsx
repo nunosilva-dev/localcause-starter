@@ -248,7 +248,12 @@ var config_default = defineConfig({
                             },
                             fields: [
                                 {type: "string", name: "question", label: "Question"},
-                                {type: "string", name: "answer", label: "Answer", ui: {component: "textarea"}}
+                                {
+                                    type: "string",
+                                    name: "answer",
+                                    label: "Answer",
+                                    ui: {component: "textarea"}
+                                }
                             ]
                         }
                     ]
@@ -274,7 +279,12 @@ var config_default = defineConfig({
                                 }
                             },
                             fields: [
-                                {type: "string", name: "quote", label: "Quote", ui: {component: "textarea"}},
+                                {
+                                    type: "string",
+                                    name: "quote",
+                                    label: "Quote",
+                                    ui: {component: "textarea"}
+                                },
                                 {type: "string", name: "author", label: "Author"},
                                 {
                                     type: "string",
@@ -314,7 +324,12 @@ var config_default = defineConfig({
                                     description: "e.g. 2020, March 2023, etc."
                                 },
                                 {type: "string", name: "title", label: "Title"},
-                                {type: "string", name: "description", label: "Description", ui: {component: "textarea"}}
+                                {
+                                    type: "string",
+                                    name: "description",
+                                    label: "Description",
+                                    ui: {component: "textarea"}
+                                }
                             ]
                         }
                     ]
