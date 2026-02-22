@@ -1,1 +1,1099 @@
-{"version":{"fullVersion":"2.1.1","major":"2","minor":"1","patch":"1"},"meta":{"flags":["experimentalData"]},"collections":[{"name":"page","label":"Pages","path":"content/pages","format":"md","ui":{},"fields":[{"type":"string","name":"title","label":"Page Title","isTitle":true,"required":true,"description":"Used for the browser tab title and SEO.","namespace":["page","title"],"searchable":true,"uid":false},{"type":"object","list":true,"name":"blocks","label":"Sections","templates":[{"name":"hero","label":"Hero","fields":[{"type":"string","name":"headline","label":"Headline","namespace":["page","blocks","hero","headline"],"searchable":true,"uid":false},{"type":"string","name":"subtext","label":"Subtext","ui":{"component":"textarea"},"namespace":["page","blocks","hero","subtext"],"searchable":true,"uid":false},{"type":"image","name":"backgroundImage","label":"Background Image","namespace":["page","blocks","hero","backgroundImage"],"searchable":false,"uid":false},{"type":"object","name":"cta","label":"CTA Button","fields":[{"type":"string","name":"label","label":"Label","namespace":["page","blocks","hero","cta","label"]},{"type":"string","name":"url","label":"URL","namespace":["page","blocks","hero","cta","url"]}],"namespace":["page","blocks","hero","cta"],"searchable":true,"uid":false}],"namespace":["page","blocks","hero"]},{"name":"mission","label":"Mission / Content","fields":[{"type":"image","name":"image","label":"Image","namespace":["page","blocks","mission","image"],"searchable":false,"uid":false},{"type":"string","name":"imageSide","label":"Image Side","options":["left","right"],"ui":{"defaultValue":"left"},"namespace":["page","blocks","mission","imageSide"],"searchable":true,"uid":false},{"type":"rich-text","name":"content","label":"Content","namespace":["page","blocks","mission","content"],"searchable":true,"parser":{"type":"markdown"},"uid":false}],"namespace":["page","blocks","mission"]},{"name":"impactGrid","label":"Impact Grid","fields":[{"type":"object","list":true,"name":"stats","label":"Stats","ui":{},"fields":[{"type":"string","name":"value","label":"Value (e.g. 50)","namespace":["page","blocks","impactGrid","stats","value"]},{"type":"string","name":"label","label":"Label (e.g. Dogs Saved)","namespace":["page","blocks","impactGrid","stats","label"]}],"namespace":["page","blocks","impactGrid","stats"],"searchable":true,"uid":false}],"namespace":["page","blocks","impactGrid"]},{"name":"donation","label":"Donation Info","fields":[{"type":"boolean","name":"visible","label":"Show Section","description":"Toggle to show/hide this section","namespace":["page","blocks","donation","visible"],"searchable":true,"uid":false},{"type":"string","name":"headline","label":"Headline","namespace":["page","blocks","donation","headline"],"searchable":true,"uid":false},{"type":"rich-text","name":"description","label":"Description","namespace":["page","blocks","donation","description"],"searchable":true,"parser":{"type":"markdown"},"uid":false},{"type":"object","list":true,"name":"methods","label":"Donation Methods","ui":{},"fields":[{"type":"string","name":"label","label":"Label (e.g. MBWay)","namespace":["page","blocks","donation","methods","label"]},{"type":"string","name":"value","label":"Value (e.g. 912...)","namespace":["page","blocks","donation","methods","value"]},{"type":"string","name":"helperText","label":"Helper Text (optional)","namespace":["page","blocks","donation","methods","helperText"]}],"namespace":["page","blocks","donation","methods"],"searchable":true,"uid":false}],"namespace":["page","blocks","donation"]},{"name":"events","label":"Events List","fields":[{"type":"object","list":true,"name":"items","label":"Events","ui":{},"fields":[{"type":"string","name":"title","label":"Event Title","namespace":["page","blocks","events","items","title"]},{"type":"datetime","name":"date","label":"Date","namespace":["page","blocks","events","items","date"]},{"type":"string","name":"location","label":"Location","namespace":["page","blocks","events","items","location"]}],"namespace":["page","blocks","events","items"],"searchable":true,"uid":false}],"namespace":["page","blocks","events"]},{"name":"contact","label":"Contact Info","fields":[{"type":"string","name":"address","label":"Address","namespace":["page","blocks","contact","address"],"searchable":true,"uid":false},{"type":"string","name":"phone","label":"Phone","namespace":["page","blocks","contact","phone"],"searchable":true,"uid":false},{"type":"string","name":"email","label":"Email","namespace":["page","blocks","contact","email"],"searchable":true,"uid":false},{"type":"string","name":"mapEmbed","label":"Google Maps Embed URL","namespace":["page","blocks","contact","mapEmbed"],"searchable":true,"uid":false}],"namespace":["page","blocks","contact"]}],"namespace":["page","blocks"],"searchable":true,"uid":false}],"namespace":["page"]},{"name":"global","label":"Global Settings","path":"content/global","format":"json","ui":{"global":true,"allowedActions":{"create":false,"delete":false}},"fields":[{"type":"string","name":"brandColor","label":"Brand Color (Hex)","ui":{"component":"color"},"namespace":["global","brandColor"],"searchable":true,"uid":false},{"type":"image","name":"logo","label":"Logo","namespace":["global","logo"],"searchable":false,"uid":false},{"type":"boolean","name":"showPlaceholderLogo","label":"Show Placeholder Logo","description":"If no logo is uploaded, show the default 'LC' icon?","ui":{"defaultValue":true},"namespace":["global","showPlaceholderLogo"],"searchable":true,"uid":false},{"type":"image","name":"favicon","label":"Favicon (Optional)","description":"Upload a square image (PNG/ICO/SVG) to use as the browser icon.","namespace":["global","favicon"],"searchable":false,"uid":false},{"type":"string","name":"organizationName","label":"Organization Name","namespace":["global","organizationName"],"searchable":true,"uid":false},{"type":"string","name":"slogan","label":"Footer Slogan","description":"Short text below the logo","namespace":["global","slogan"],"searchable":true,"uid":false},{"type":"string","name":"locale","label":"Site Locale","description":"e.g. en_US, pt_PT","ui":{"defaultValue":"en_US"},"namespace":["global","locale"],"searchable":true,"uid":false},{"type":"object","list":true,"name":"navigation","label":"Navigation","ui":{},"fields":[{"type":"string","name":"label","label":"Label","namespace":["global","navigation","label"],"searchable":true,"uid":false},{"type":"string","name":"url","label":"URL","namespace":["global","navigation","url"],"searchable":true,"uid":false}],"namespace":["global","navigation"],"searchable":true,"uid":false},{"type":"object","name":"social","label":"Social Links","fields":[{"type":"string","name":"facebook","label":"Facebook URL","namespace":["global","social","facebook"],"searchable":true,"uid":false},{"type":"string","name":"instagram","label":"Instagram URL","namespace":["global","social","instagram"],"searchable":true,"uid":false}],"namespace":["global","social"],"searchable":true,"uid":false}],"namespace":["global"]}],"config":{"media":{"tina":{"publicFolder":"public","mediaRoot":"uploads"}}}}
+{
+  "version": {
+    "fullVersion": "2.1.2",
+    "major": "2",
+    "minor": "1",
+    "patch": "2"
+  },
+  "meta": {
+    "flags": [
+      "experimentalData"
+    ]
+  },
+  "collections": [
+    {
+      "name": "page",
+      "label": "Pages",
+      "path": "content/pages",
+      "format": "md",
+      "ui": {},
+      "fields": [
+        {
+          "type": "string",
+          "name": "title",
+          "label": "Page Title",
+          "isTitle": true,
+          "required": true,
+          "description": "Used for the browser tab title and SEO.",
+          "namespace": [
+            "page",
+            "title"
+          ],
+          "searchable": true,
+          "uid": false
+        },
+        {
+          "type": "object",
+          "list": true,
+          "name": "blocks",
+          "label": "Sections",
+          "templates": [
+            {
+              "name": "hero",
+              "label": "Cover",
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "headline",
+                  "label": "Headline",
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "hero",
+                    "headline"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "type": "string",
+                  "name": "subtext",
+                  "label": "Subtext",
+                  "ui": {
+                    "component": "textarea"
+                  },
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "hero",
+                    "subtext"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "type": "image",
+                  "name": "backgroundImage",
+                  "label": "Background Image",
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "hero",
+                    "backgroundImage"
+                  ],
+                  "searchable": false,
+                  "uid": false
+                },
+                {
+                  "type": "object",
+                  "name": "cta",
+                  "label": "CTA Button",
+                  "fields": [
+                    {
+                      "type": "string",
+                      "name": "label",
+                      "label": "Label",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "hero",
+                        "cta",
+                        "label"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "name": "url",
+                      "label": "URL",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "hero",
+                        "cta",
+                        "url"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "hero",
+                    "cta"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                }
+              ],
+              "namespace": [
+                "page",
+                "blocks",
+                "hero"
+              ]
+            },
+            {
+              "name": "mission",
+              "label": "Content",
+              "fields": [
+                {
+                  "type": "image",
+                  "name": "image",
+                  "label": "Image",
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "mission",
+                    "image"
+                  ],
+                  "searchable": false,
+                  "uid": false
+                },
+                {
+                  "type": "string",
+                  "name": "imageSide",
+                  "label": "Image Side",
+                  "options": [
+                    "left",
+                    "right"
+                  ],
+                  "ui": {
+                    "defaultValue": "left"
+                  },
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "mission",
+                    "imageSide"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "type": "rich-text",
+                  "name": "content",
+                  "label": "Content",
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "mission",
+                    "content"
+                  ],
+                  "searchable": true,
+                  "parser": {
+                    "type": "markdown"
+                  },
+                  "uid": false
+                }
+              ],
+              "namespace": [
+                "page",
+                "blocks",
+                "mission"
+              ]
+            },
+            {
+              "name": "impactGrid",
+              "label": "Impact Grid",
+              "fields": [
+                {
+                  "type": "object",
+                  "list": true,
+                  "name": "stats",
+                  "label": "Stats",
+                  "ui": {},
+                  "fields": [
+                    {
+                      "type": "string",
+                      "name": "value",
+                      "label": "Value (e.g. 50)",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "impactGrid",
+                        "stats",
+                        "value"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "name": "label",
+                      "label": "Label (e.g. Dogs Saved)",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "impactGrid",
+                        "stats",
+                        "label"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "impactGrid",
+                    "stats"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                }
+              ],
+              "namespace": [
+                "page",
+                "blocks",
+                "impactGrid"
+              ]
+            },
+            {
+              "name": "donation",
+              "label": "Donation Info",
+              "fields": [
+                {
+                  "type": "boolean",
+                  "name": "visible",
+                  "label": "Show Section",
+                  "description": "Toggle to show/hide this section",
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "donation",
+                    "visible"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "type": "string",
+                  "name": "headline",
+                  "label": "Headline",
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "donation",
+                    "headline"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "type": "rich-text",
+                  "name": "description",
+                  "label": "Description",
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "donation",
+                    "description"
+                  ],
+                  "searchable": true,
+                  "parser": {
+                    "type": "markdown"
+                  },
+                  "uid": false
+                },
+                {
+                  "type": "object",
+                  "list": true,
+                  "name": "methods",
+                  "label": "Donation Methods",
+                  "ui": {},
+                  "fields": [
+                    {
+                      "type": "string",
+                      "name": "label",
+                      "label": "Label (e.g. MBWay)",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "donation",
+                        "methods",
+                        "label"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "name": "value",
+                      "label": "Value (e.g. 912...)",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "donation",
+                        "methods",
+                        "value"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "name": "helperText",
+                      "label": "Helper Text (optional)",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "donation",
+                        "methods",
+                        "helperText"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "donation",
+                    "methods"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                }
+              ],
+              "namespace": [
+                "page",
+                "blocks",
+                "donation"
+              ]
+            },
+            {
+              "name": "events",
+              "label": "Events List",
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "label",
+                  "label": "Section Title",
+                  "description": "Heading displayed above the events list (e.g. 'Upcoming Events')",
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "events",
+                    "label"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "type": "object",
+                  "list": true,
+                  "name": "items",
+                  "label": "Events",
+                  "ui": {},
+                  "fields": [
+                    {
+                      "type": "string",
+                      "name": "title",
+                      "label": "Event Title",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "events",
+                        "items",
+                        "title"
+                      ]
+                    },
+                    {
+                      "type": "datetime",
+                      "name": "date",
+                      "label": "Date",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "events",
+                        "items",
+                        "date"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "name": "location",
+                      "label": "Location",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "events",
+                        "items",
+                        "location"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "events",
+                    "items"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                }
+              ],
+              "namespace": [
+                "page",
+                "blocks",
+                "events"
+              ]
+            },
+            {
+              "name": "contact",
+              "label": "Contact Info",
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "label",
+                  "label": "Section Title",
+                  "description": "Heading displayed above the contact info (e.g. 'Contact Us')",
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "contact",
+                    "label"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "type": "string",
+                  "name": "address",
+                  "label": "Address",
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "contact",
+                    "address"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "type": "string",
+                  "name": "phone",
+                  "label": "Phone Numbers",
+                  "list": true,
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "contact",
+                    "phone"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "type": "string",
+                  "name": "email",
+                  "label": "Emails",
+                  "list": true,
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "contact",
+                    "email"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "type": "string",
+                  "name": "mapEmbed",
+                  "label": "Google Maps Embed URL",
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "contact",
+                    "mapEmbed"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                }
+              ],
+              "namespace": [
+                "page",
+                "blocks",
+                "contact"
+              ]
+            },
+            {
+              "name": "image",
+              "label": "Image",
+              "fields": [
+                {
+                  "type": "image",
+                  "name": "src",
+                  "label": "Image",
+                  "required": true,
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "image",
+                    "src"
+                  ],
+                  "searchable": false,
+                  "uid": false
+                },
+                {
+                  "type": "string",
+                  "name": "alt",
+                  "label": "Alt Text",
+                  "description": "Describes the image for accessibility",
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "image",
+                    "alt"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "type": "string",
+                  "name": "fit",
+                  "label": "Fit Mode",
+                  "description": "How the image fills its container",
+                  "options": [
+                    {
+                      "value": "cover",
+                      "label": "Cover (fills area, may crop)"
+                    },
+                    {
+                      "value": "contain",
+                      "label": "Contain (shows full image)"
+                    },
+                    {
+                      "value": "fill",
+                      "label": "Stretch (fills area exactly)"
+                    }
+                  ],
+                  "ui": {
+                    "defaultValue": "cover"
+                  },
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "image",
+                    "fit"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "type": "string",
+                  "name": "position",
+                  "label": "Position",
+                  "description": "Which part of the image to focus on",
+                  "options": [
+                    {
+                      "value": "center",
+                      "label": "Center"
+                    },
+                    {
+                      "value": "top",
+                      "label": "Top"
+                    },
+                    {
+                      "value": "bottom",
+                      "label": "Bottom"
+                    },
+                    {
+                      "value": "left",
+                      "label": "Left"
+                    },
+                    {
+                      "value": "right",
+                      "label": "Right"
+                    },
+                    {
+                      "value": "top left",
+                      "label": "Top Left"
+                    },
+                    {
+                      "value": "top right",
+                      "label": "Top Right"
+                    },
+                    {
+                      "value": "bottom left",
+                      "label": "Bottom Left"
+                    },
+                    {
+                      "value": "bottom right",
+                      "label": "Bottom Right"
+                    }
+                  ],
+                  "ui": {
+                    "defaultValue": "center"
+                  },
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "image",
+                    "position"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "type": "number",
+                  "name": "maxHeight",
+                  "label": "Max Height (px)",
+                  "description": "Optional max height in pixels. Leave empty for auto.",
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "image",
+                    "maxHeight"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                }
+              ],
+              "namespace": [
+                "page",
+                "blocks",
+                "image"
+              ]
+            },
+            {
+              "name": "faq",
+              "label": "FAQ",
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "label",
+                  "label": "Section Title",
+                  "description": "Heading displayed above the FAQ (e.g. 'Frequently Asked Questions')",
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "faq",
+                    "label"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "type": "object",
+                  "list": true,
+                  "name": "items",
+                  "label": "Questions",
+                  "ui": {},
+                  "fields": [
+                    {
+                      "type": "string",
+                      "name": "question",
+                      "label": "Question",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "faq",
+                        "items",
+                        "question"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "name": "answer",
+                      "label": "Answer",
+                      "ui": {
+                        "component": "textarea"
+                      },
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "faq",
+                        "items",
+                        "answer"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "faq",
+                    "items"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                }
+              ],
+              "namespace": [
+                "page",
+                "blocks",
+                "faq"
+              ]
+            },
+            {
+              "name": "testimonials",
+              "label": "Testimonials",
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "label",
+                  "label": "Section Title",
+                  "description": "Heading displayed above the testimonials",
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "testimonials",
+                    "label"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "type": "object",
+                  "list": true,
+                  "name": "items",
+                  "label": "Testimonials",
+                  "ui": {},
+                  "fields": [
+                    {
+                      "type": "string",
+                      "name": "quote",
+                      "label": "Quote",
+                      "ui": {
+                        "component": "textarea"
+                      },
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "testimonials",
+                        "items",
+                        "quote"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "name": "author",
+                      "label": "Author",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "testimonials",
+                        "items",
+                        "author"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "name": "role",
+                      "label": "Role (optional)",
+                      "description": "e.g. Volunteer, Partner, Beneficiary",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "testimonials",
+                        "items",
+                        "role"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "testimonials",
+                    "items"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                }
+              ],
+              "namespace": [
+                "page",
+                "blocks",
+                "testimonials"
+              ]
+            },
+            {
+              "name": "timeline",
+              "label": "Timeline",
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "label",
+                  "label": "Section Title",
+                  "description": "Heading displayed above the timeline",
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "timeline",
+                    "label"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                },
+                {
+                  "type": "object",
+                  "list": true,
+                  "name": "items",
+                  "label": "Milestones",
+                  "ui": {},
+                  "fields": [
+                    {
+                      "type": "string",
+                      "name": "date",
+                      "label": "Date / Year",
+                      "description": "e.g. 2020, March 2023, etc.",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "timeline",
+                        "items",
+                        "date"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "name": "title",
+                      "label": "Title",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "timeline",
+                        "items",
+                        "title"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "name": "description",
+                      "label": "Description",
+                      "ui": {
+                        "component": "textarea"
+                      },
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "timeline",
+                        "items",
+                        "description"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "timeline",
+                    "items"
+                  ],
+                  "searchable": true,
+                  "uid": false
+                }
+              ],
+              "namespace": [
+                "page",
+                "blocks",
+                "timeline"
+              ]
+            }
+          ],
+          "namespace": [
+            "page",
+            "blocks"
+          ],
+          "searchable": true,
+          "uid": false
+        }
+      ],
+      "namespace": [
+        "page"
+      ]
+    },
+    {
+      "name": "global",
+      "label": "Global Settings",
+      "path": "content/global",
+      "format": "json",
+      "ui": {
+        "global": true,
+        "allowedActions": {
+          "create": false,
+          "delete": false
+        }
+      },
+      "fields": [
+        {
+          "type": "string",
+          "name": "brandColor",
+          "label": "Brand Color (Hex)",
+          "ui": {
+            "component": "color"
+          },
+          "namespace": [
+            "global",
+            "brandColor"
+          ],
+          "searchable": true,
+          "uid": false
+        },
+        {
+          "type": "image",
+          "name": "logo",
+          "label": "Logo",
+          "namespace": [
+            "global",
+            "logo"
+          ],
+          "searchable": false,
+          "uid": false
+        },
+        {
+          "type": "boolean",
+          "name": "showPlaceholderLogo",
+          "label": "Show Placeholder Logo",
+          "description": "If no logo is uploaded, show the default 'LC' icon?",
+          "ui": {
+            "defaultValue": true
+          },
+          "namespace": [
+            "global",
+            "showPlaceholderLogo"
+          ],
+          "searchable": true,
+          "uid": false
+        },
+        {
+          "type": "image",
+          "name": "favicon",
+          "label": "Favicon (Optional)",
+          "description": "Upload a square image (PNG/ICO/SVG) to use as the browser icon.",
+          "namespace": [
+            "global",
+            "favicon"
+          ],
+          "searchable": false,
+          "uid": false
+        },
+        {
+          "type": "string",
+          "name": "organizationName",
+          "label": "Organization Name",
+          "namespace": [
+            "global",
+            "organizationName"
+          ],
+          "searchable": true,
+          "uid": false
+        },
+        {
+          "type": "string",
+          "name": "slogan",
+          "label": "Footer Slogan",
+          "description": "Short text below the logo",
+          "namespace": [
+            "global",
+            "slogan"
+          ],
+          "searchable": true,
+          "uid": false
+        },
+        {
+          "type": "string",
+          "name": "locale",
+          "label": "Site Locale",
+          "description": "e.g. en_US, pt_PT",
+          "ui": {
+            "defaultValue": "en_US"
+          },
+          "namespace": [
+            "global",
+            "locale"
+          ],
+          "searchable": true,
+          "uid": false
+        },
+        {
+          "type": "string",
+          "name": "socialLabel",
+          "label": "Social Section Label",
+          "description": "Label shown above social icons in the footer (e.g. 'Follow Us')",
+          "namespace": [
+            "global",
+            "socialLabel"
+          ],
+          "searchable": true,
+          "uid": false
+        },
+        {
+          "type": "object",
+          "list": true,
+          "name": "navigation",
+          "label": "Navigation",
+          "ui": {},
+          "fields": [
+            {
+              "type": "string",
+              "name": "label",
+              "label": "Label",
+              "namespace": [
+                "global",
+                "navigation",
+                "label"
+              ],
+              "searchable": true,
+              "uid": false
+            },
+            {
+              "type": "string",
+              "name": "url",
+              "label": "URL",
+              "namespace": [
+                "global",
+                "navigation",
+                "url"
+              ],
+              "searchable": true,
+              "uid": false
+            }
+          ],
+          "namespace": [
+            "global",
+            "navigation"
+          ],
+          "searchable": true,
+          "uid": false
+        },
+        {
+          "type": "object",
+          "name": "social",
+          "label": "Social Links",
+          "fields": [
+            {
+              "type": "string",
+              "name": "facebook",
+              "label": "Facebook URL",
+              "namespace": [
+                "global",
+                "social",
+                "facebook"
+              ],
+              "searchable": true,
+              "uid": false
+            },
+            {
+              "type": "string",
+              "name": "instagram",
+              "label": "Instagram URL",
+              "namespace": [
+                "global",
+                "social",
+                "instagram"
+              ],
+              "searchable": true,
+              "uid": false
+            }
+          ],
+          "namespace": [
+            "global",
+            "social"
+          ],
+          "searchable": true,
+          "uid": false
+        }
+      ],
+      "namespace": [
+        "global"
+      ]
+    }
+  ],
+  "config": {
+    "media": {
+      "tina": {
+        "publicFolder": "public",
+        "mediaRoot": "uploads"
+      }
+    }
+  }
+}

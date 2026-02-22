@@ -4,7 +4,7 @@ import {Calendar, MapPin} from "lucide-react";
 export const EventsListBlock = ({data}: { data: PageBlocksEvents }) => {
     return (
         <section className="py-20 max-w-5xl mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-12 text-center">Upcoming Events</h2>
+            <h2 className="text-3xl font-bold mb-12 text-center">{data.label || "Events"}</h2>
             <div className="space-y-6">
                 {data.items?.map((event, i) => (
                     <div key={i}

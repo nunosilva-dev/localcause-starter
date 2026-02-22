@@ -1,1 +1,60 @@
-{"DocumentConnection":{"type":"DocumentConnection","resolveType":"multiCollectionDocumentList","collections":["page","global"]},"Node":{"type":"Node","resolveType":"nodeDocument"},"DocumentNode":{"type":"DocumentNode","resolveType":"multiCollectionDocument","createDocument":"create","updateDocument":"update"},"PageBlocks":{"type":"PageBlocks","resolveType":"unionData","typeMap":{"hero":"PageBlocksHero","mission":"PageBlocksMission","impactGrid":"PageBlocksImpactGrid","donation":"PageBlocksDonation","events":"PageBlocksEvents","contact":"PageBlocksContact"}},"Page":{"type":"Page","resolveType":"collectionDocument","collection":"page","createPage":"create","updatePage":"update"},"PageConnection":{"type":"PageConnection","resolveType":"collectionDocumentList","collection":"page"},"Global":{"type":"Global","resolveType":"collectionDocument","collection":"global","createGlobal":"create","updateGlobal":"update"},"GlobalConnection":{"type":"GlobalConnection","resolveType":"collectionDocumentList","collection":"global"}}
+{
+  "DocumentConnection": {
+    "type": "DocumentConnection",
+    "resolveType": "multiCollectionDocumentList",
+    "collections": [
+      "page",
+      "global"
+    ]
+  },
+  "Node": {
+    "type": "Node",
+    "resolveType": "nodeDocument"
+  },
+  "DocumentNode": {
+    "type": "DocumentNode",
+    "resolveType": "multiCollectionDocument",
+    "createDocument": "create",
+    "updateDocument": "update"
+  },
+  "PageBlocks": {
+    "type": "PageBlocks",
+    "resolveType": "unionData",
+    "typeMap": {
+      "hero": "PageBlocksHero",
+      "mission": "PageBlocksMission",
+      "impactGrid": "PageBlocksImpactGrid",
+      "donation": "PageBlocksDonation",
+      "events": "PageBlocksEvents",
+      "contact": "PageBlocksContact",
+      "image": "PageBlocksImage",
+      "faq": "PageBlocksFaq",
+      "testimonials": "PageBlocksTestimonials",
+      "timeline": "PageBlocksTimeline"
+    }
+  },
+  "Page": {
+    "type": "Page",
+    "resolveType": "collectionDocument",
+    "collection": "page",
+    "createPage": "create",
+    "updatePage": "update"
+  },
+  "PageConnection": {
+    "type": "PageConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "page"
+  },
+  "Global": {
+    "type": "Global",
+    "resolveType": "collectionDocument",
+    "collection": "global",
+    "createGlobal": "create",
+    "updateGlobal": "update"
+  },
+  "GlobalConnection": {
+    "type": "GlobalConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "global"
+  }
+}

@@ -239,18 +239,77 @@ export type PageBlocksEventsItems = {
 
 export type PageBlocksEvents = {
   __typename?: 'PageBlocksEvents';
+    label?: Maybe<Scalars['String']['output']>;
   items?: Maybe<Array<Maybe<PageBlocksEventsItems>>>;
 };
 
 export type PageBlocksContact = {
   __typename?: 'PageBlocksContact';
+    label?: Maybe<Scalars['String']['output']>;
   address?: Maybe<Scalars['String']['output']>;
-  phone?: Maybe<Scalars['String']['output']>;
-  email?: Maybe<Scalars['String']['output']>;
+    phone?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+    email?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   mapEmbed?: Maybe<Scalars['String']['output']>;
 };
 
-export type PageBlocks = PageBlocksHero | PageBlocksMission | PageBlocksImpactGrid | PageBlocksDonation | PageBlocksEvents | PageBlocksContact;
+export type PageBlocksImage = {
+    __typename?: 'PageBlocksImage';
+    src: Scalars['String']['output'];
+    alt?: Maybe<Scalars['String']['output']>;
+    fit?: Maybe<Scalars['String']['output']>;
+    position?: Maybe<Scalars['String']['output']>;
+    maxHeight?: Maybe<Scalars['Float']['output']>;
+};
+
+export type PageBlocksFaqItems = {
+    __typename?: 'PageBlocksFaqItems';
+    question?: Maybe<Scalars['String']['output']>;
+    answer?: Maybe<Scalars['String']['output']>;
+};
+
+export type PageBlocksFaq = {
+    __typename?: 'PageBlocksFaq';
+    label?: Maybe<Scalars['String']['output']>;
+    items?: Maybe<Array<Maybe<PageBlocksFaqItems>>>;
+};
+
+export type PageBlocksTestimonialsItems = {
+    __typename?: 'PageBlocksTestimonialsItems';
+    quote?: Maybe<Scalars['String']['output']>;
+    author?: Maybe<Scalars['String']['output']>;
+    role?: Maybe<Scalars['String']['output']>;
+};
+
+export type PageBlocksTestimonials = {
+    __typename?: 'PageBlocksTestimonials';
+    label?: Maybe<Scalars['String']['output']>;
+    items?: Maybe<Array<Maybe<PageBlocksTestimonialsItems>>>;
+};
+
+export type PageBlocksTimelineItems = {
+    __typename?: 'PageBlocksTimelineItems';
+    date?: Maybe<Scalars['String']['output']>;
+    title?: Maybe<Scalars['String']['output']>;
+    description?: Maybe<Scalars['String']['output']>;
+};
+
+export type PageBlocksTimeline = {
+    __typename?: 'PageBlocksTimeline';
+    label?: Maybe<Scalars['String']['output']>;
+    items?: Maybe<Array<Maybe<PageBlocksTimelineItems>>>;
+};
+
+export type PageBlocks =
+    PageBlocksHero
+    | PageBlocksMission
+    | PageBlocksImpactGrid
+    | PageBlocksDonation
+    | PageBlocksEvents
+    | PageBlocksContact
+    | PageBlocksImage
+    | PageBlocksFaq
+    | PageBlocksTestimonials
+    | PageBlocksTimeline;
 
 export type Page = Node & Document & {
   __typename?: 'Page';
@@ -341,14 +400,66 @@ export type PageBlocksEventsItemsFilter = {
 };
 
 export type PageBlocksEventsFilter = {
+    label?: InputMaybe<StringFilter>;
   items?: InputMaybe<PageBlocksEventsItemsFilter>;
 };
 
 export type PageBlocksContactFilter = {
+    label?: InputMaybe<StringFilter>;
   address?: InputMaybe<StringFilter>;
   phone?: InputMaybe<StringFilter>;
   email?: InputMaybe<StringFilter>;
   mapEmbed?: InputMaybe<StringFilter>;
+};
+
+export type NumberFilter = {
+    lt?: InputMaybe<Scalars['Float']['input']>;
+    lte?: InputMaybe<Scalars['Float']['input']>;
+    gte?: InputMaybe<Scalars['Float']['input']>;
+    gt?: InputMaybe<Scalars['Float']['input']>;
+    eq?: InputMaybe<Scalars['Float']['input']>;
+    exists?: InputMaybe<Scalars['Boolean']['input']>;
+    in?: InputMaybe<Array<InputMaybe<Scalars['Float']['input']>>>;
+};
+
+export type PageBlocksImageFilter = {
+    src?: InputMaybe<ImageFilter>;
+    alt?: InputMaybe<StringFilter>;
+    fit?: InputMaybe<StringFilter>;
+    position?: InputMaybe<StringFilter>;
+    maxHeight?: InputMaybe<NumberFilter>;
+};
+
+export type PageBlocksFaqItemsFilter = {
+    question?: InputMaybe<StringFilter>;
+    answer?: InputMaybe<StringFilter>;
+};
+
+export type PageBlocksFaqFilter = {
+    label?: InputMaybe<StringFilter>;
+    items?: InputMaybe<PageBlocksFaqItemsFilter>;
+};
+
+export type PageBlocksTestimonialsItemsFilter = {
+    quote?: InputMaybe<StringFilter>;
+    author?: InputMaybe<StringFilter>;
+    role?: InputMaybe<StringFilter>;
+};
+
+export type PageBlocksTestimonialsFilter = {
+    label?: InputMaybe<StringFilter>;
+    items?: InputMaybe<PageBlocksTestimonialsItemsFilter>;
+};
+
+export type PageBlocksTimelineItemsFilter = {
+    date?: InputMaybe<StringFilter>;
+    title?: InputMaybe<StringFilter>;
+    description?: InputMaybe<StringFilter>;
+};
+
+export type PageBlocksTimelineFilter = {
+    label?: InputMaybe<StringFilter>;
+    items?: InputMaybe<PageBlocksTimelineItemsFilter>;
 };
 
 export type PageBlocksFilter = {
@@ -358,6 +469,10 @@ export type PageBlocksFilter = {
   donation?: InputMaybe<PageBlocksDonationFilter>;
   events?: InputMaybe<PageBlocksEventsFilter>;
   contact?: InputMaybe<PageBlocksContactFilter>;
+    image?: InputMaybe<PageBlocksImageFilter>;
+    faq?: InputMaybe<PageBlocksFaqFilter>;
+    testimonials?: InputMaybe<PageBlocksTestimonialsFilter>;
+    timeline?: InputMaybe<PageBlocksTimelineFilter>;
 };
 
 export type PageFilter = {
@@ -399,6 +514,7 @@ export type Global = Node & Document & {
   organizationName?: Maybe<Scalars['String']['output']>;
   slogan?: Maybe<Scalars['String']['output']>;
   locale?: Maybe<Scalars['String']['output']>;
+    socialLabel?: Maybe<Scalars['String']['output']>;
   navigation?: Maybe<Array<Maybe<GlobalNavigation>>>;
   social?: Maybe<GlobalSocial>;
   id: Scalars['ID']['output'];
@@ -424,6 +540,7 @@ export type GlobalFilter = {
   organizationName?: InputMaybe<StringFilter>;
   slogan?: InputMaybe<StringFilter>;
   locale?: InputMaybe<StringFilter>;
+    socialLabel?: InputMaybe<StringFilter>;
   navigation?: InputMaybe<GlobalNavigationFilter>;
   social?: InputMaybe<GlobalSocialFilter>;
 };
@@ -569,14 +686,56 @@ export type PageBlocksEventsItemsMutation = {
 };
 
 export type PageBlocksEventsMutation = {
+    label?: InputMaybe<Scalars['String']['input']>;
   items?: InputMaybe<Array<InputMaybe<PageBlocksEventsItemsMutation>>>;
 };
 
 export type PageBlocksContactMutation = {
+    label?: InputMaybe<Scalars['String']['input']>;
   address?: InputMaybe<Scalars['String']['input']>;
-  phone?: InputMaybe<Scalars['String']['input']>;
-  email?: InputMaybe<Scalars['String']['input']>;
+    phone?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+    email?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   mapEmbed?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PageBlocksImageMutation = {
+    src?: InputMaybe<Scalars['String']['input']>;
+    alt?: InputMaybe<Scalars['String']['input']>;
+    fit?: InputMaybe<Scalars['String']['input']>;
+    position?: InputMaybe<Scalars['String']['input']>;
+    maxHeight?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type PageBlocksFaqItemsMutation = {
+    question?: InputMaybe<Scalars['String']['input']>;
+    answer?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PageBlocksFaqMutation = {
+    label?: InputMaybe<Scalars['String']['input']>;
+    items?: InputMaybe<Array<InputMaybe<PageBlocksFaqItemsMutation>>>;
+};
+
+export type PageBlocksTestimonialsItemsMutation = {
+    quote?: InputMaybe<Scalars['String']['input']>;
+    author?: InputMaybe<Scalars['String']['input']>;
+    role?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PageBlocksTestimonialsMutation = {
+    label?: InputMaybe<Scalars['String']['input']>;
+    items?: InputMaybe<Array<InputMaybe<PageBlocksTestimonialsItemsMutation>>>;
+};
+
+export type PageBlocksTimelineItemsMutation = {
+    date?: InputMaybe<Scalars['String']['input']>;
+    title?: InputMaybe<Scalars['String']['input']>;
+    description?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type PageBlocksTimelineMutation = {
+    label?: InputMaybe<Scalars['String']['input']>;
+    items?: InputMaybe<Array<InputMaybe<PageBlocksTimelineItemsMutation>>>;
 };
 
 export type PageBlocksMutation = {
@@ -586,6 +745,10 @@ export type PageBlocksMutation = {
   donation?: InputMaybe<PageBlocksDonationMutation>;
   events?: InputMaybe<PageBlocksEventsMutation>;
   contact?: InputMaybe<PageBlocksContactMutation>;
+    image?: InputMaybe<PageBlocksImageMutation>;
+    faq?: InputMaybe<PageBlocksFaqMutation>;
+    testimonials?: InputMaybe<PageBlocksTestimonialsMutation>;
+    timeline?: InputMaybe<PageBlocksTimelineMutation>;
 };
 
 export type PageMutation = {
@@ -611,20 +774,205 @@ export type GlobalMutation = {
   organizationName?: InputMaybe<Scalars['String']['input']>;
   slogan?: InputMaybe<Scalars['String']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
+    socialLabel?: InputMaybe<Scalars['String']['input']>;
   navigation?: InputMaybe<Array<InputMaybe<GlobalNavigationMutation>>>;
   social?: InputMaybe<GlobalSocialMutation>;
 };
 
-export type PagePartsFragment = { __typename: 'Page', title: string, blocks?: Array<{ __typename: 'PageBlocksHero', headline?: string | null, subtext?: string | null, backgroundImage?: string | null, cta?: { __typename: 'PageBlocksHeroCta', label?: string | null, url?: string | null } | null } | { __typename: 'PageBlocksMission', image?: string | null, imageSide?: string | null, content?: any | null } | { __typename: 'PageBlocksImpactGrid', stats?: Array<{ __typename: 'PageBlocksImpactGridStats', value?: string | null, label?: string | null } | null> | null } | { __typename: 'PageBlocksDonation', visible?: boolean | null, headline?: string | null, description?: any | null, methods?: Array<{ __typename: 'PageBlocksDonationMethods', label?: string | null, value?: string | null, helperText?: string | null } | null> | null } | { __typename: 'PageBlocksEvents', items?: Array<{ __typename: 'PageBlocksEventsItems', title?: string | null, date?: string | null, location?: string | null } | null> | null } | { __typename: 'PageBlocksContact', address?: string | null, phone?: string | null, email?: string | null, mapEmbed?: string | null } | null> | null };
+export type PagePartsFragment = {
+    __typename: 'Page',
+    title: string,
+    blocks?: Array<{
+        __typename: 'PageBlocksHero',
+        headline?: string | null,
+        subtext?: string | null,
+        backgroundImage?: string | null,
+        cta?: { __typename: 'PageBlocksHeroCta', label?: string | null, url?: string | null } | null
+    } | { __typename: 'PageBlocksMission', image?: string | null, imageSide?: string | null, content?: any | null } | {
+        __typename: 'PageBlocksImpactGrid',
+        stats?: Array<{
+            __typename: 'PageBlocksImpactGridStats',
+            value?: string | null,
+            label?: string | null
+        } | null> | null
+    } | {
+        __typename: 'PageBlocksDonation',
+        visible?: boolean | null,
+        headline?: string | null,
+        description?: any | null,
+        methods?: Array<{
+            __typename: 'PageBlocksDonationMethods',
+            label?: string | null,
+            value?: string | null,
+            helperText?: string | null
+        } | null> | null
+    } | {
+        __typename: 'PageBlocksEvents',
+        label?: string | null,
+        items?: Array<{
+            __typename: 'PageBlocksEventsItems',
+            title?: string | null,
+            date?: string | null,
+            location?: string | null
+        } | null> | null
+    } | {
+        __typename: 'PageBlocksContact',
+        label?: string | null,
+        address?: string | null,
+        phone?: Array<string | null> | null,
+        email?: Array<string | null> | null,
+        mapEmbed?: string | null
+    } | {
+        __typename: 'PageBlocksImage',
+        src: string,
+        alt?: string | null,
+        fit?: string | null,
+        position?: string | null,
+        maxHeight?: number | null
+    } | {
+        __typename: 'PageBlocksFaq',
+        label?: string | null,
+        items?: Array<{
+            __typename: 'PageBlocksFaqItems',
+            question?: string | null,
+            answer?: string | null
+        } | null> | null
+    } | {
+        __typename: 'PageBlocksTestimonials',
+        label?: string | null,
+        items?: Array<{
+            __typename: 'PageBlocksTestimonialsItems',
+            quote?: string | null,
+            author?: string | null,
+            role?: string | null
+        } | null> | null
+    } | {
+        __typename: 'PageBlocksTimeline',
+        label?: string | null,
+        items?: Array<{
+            __typename: 'PageBlocksTimelineItems',
+            date?: string | null,
+            title?: string | null,
+            description?: string | null
+        } | null> | null
+    } | null> | null
+};
 
-export type GlobalPartsFragment = { __typename: 'Global', brandColor?: string | null, logo?: string | null, showPlaceholderLogo?: boolean | null, favicon?: string | null, organizationName?: string | null, slogan?: string | null, locale?: string | null, navigation?: Array<{ __typename: 'GlobalNavigation', label?: string | null, url?: string | null } | null> | null, social?: { __typename: 'GlobalSocial', facebook?: string | null, instagram?: string | null } | null };
+export type GlobalPartsFragment = {
+    __typename: 'Global',
+    brandColor?: string | null,
+    logo?: string | null,
+    showPlaceholderLogo?: boolean | null,
+    favicon?: string | null,
+    organizationName?: string | null,
+    slogan?: string | null,
+    locale?: string | null,
+    socialLabel?: string | null,
+    navigation?: Array<{ __typename: 'GlobalNavigation', label?: string | null, url?: string | null } | null> | null,
+    social?: { __typename: 'GlobalSocial', facebook?: string | null, instagram?: string | null } | null
+};
 
 export type PageQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type PageQuery = { __typename?: 'Query', page: { __typename: 'Page', id: string, title: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PageBlocksHero', headline?: string | null, subtext?: string | null, backgroundImage?: string | null, cta?: { __typename: 'PageBlocksHeroCta', label?: string | null, url?: string | null } | null } | { __typename: 'PageBlocksMission', image?: string | null, imageSide?: string | null, content?: any | null } | { __typename: 'PageBlocksImpactGrid', stats?: Array<{ __typename: 'PageBlocksImpactGridStats', value?: string | null, label?: string | null } | null> | null } | { __typename: 'PageBlocksDonation', visible?: boolean | null, headline?: string | null, description?: any | null, methods?: Array<{ __typename: 'PageBlocksDonationMethods', label?: string | null, value?: string | null, helperText?: string | null } | null> | null } | { __typename: 'PageBlocksEvents', items?: Array<{ __typename: 'PageBlocksEventsItems', title?: string | null, date?: string | null, location?: string | null } | null> | null } | { __typename: 'PageBlocksContact', address?: string | null, phone?: string | null, email?: string | null, mapEmbed?: string | null } | null> | null } };
+export type PageQuery = {
+    __typename?: 'Query', page: {
+        __typename: 'Page',
+        id: string,
+        title: string,
+        _sys: {
+            __typename?: 'SystemInfo',
+            filename: string,
+            basename: string,
+            hasReferences?: boolean | null,
+            breadcrumbs: Array<string>,
+            path: string,
+            relativePath: string,
+            extension: string
+        },
+        blocks?: Array<{
+            __typename: 'PageBlocksHero',
+            headline?: string | null,
+            subtext?: string | null,
+            backgroundImage?: string | null,
+            cta?: { __typename: 'PageBlocksHeroCta', label?: string | null, url?: string | null } | null
+        } | {
+            __typename: 'PageBlocksMission',
+            image?: string | null,
+            imageSide?: string | null,
+            content?: any | null
+        } | {
+            __typename: 'PageBlocksImpactGrid',
+            stats?: Array<{
+                __typename: 'PageBlocksImpactGridStats',
+                value?: string | null,
+                label?: string | null
+            } | null> | null
+        } | {
+            __typename: 'PageBlocksDonation',
+            visible?: boolean | null,
+            headline?: string | null,
+            description?: any | null,
+            methods?: Array<{
+                __typename: 'PageBlocksDonationMethods',
+                label?: string | null,
+                value?: string | null,
+                helperText?: string | null
+            } | null> | null
+        } | {
+            __typename: 'PageBlocksEvents',
+            label?: string | null,
+            items?: Array<{
+                __typename: 'PageBlocksEventsItems',
+                title?: string | null,
+                date?: string | null,
+                location?: string | null
+            } | null> | null
+        } | {
+            __typename: 'PageBlocksContact',
+            label?: string | null,
+            address?: string | null,
+            phone?: Array<string | null> | null,
+            email?: Array<string | null> | null,
+            mapEmbed?: string | null
+        } | {
+            __typename: 'PageBlocksImage',
+            src: string,
+            alt?: string | null,
+            fit?: string | null,
+            position?: string | null,
+            maxHeight?: number | null
+        } | {
+            __typename: 'PageBlocksFaq',
+            label?: string | null,
+            items?: Array<{
+                __typename: 'PageBlocksFaqItems',
+                question?: string | null,
+                answer?: string | null
+            } | null> | null
+        } | {
+            __typename: 'PageBlocksTestimonials',
+            label?: string | null,
+            items?: Array<{
+                __typename: 'PageBlocksTestimonialsItems',
+                quote?: string | null,
+                author?: string | null,
+                role?: string | null
+            } | null> | null
+        } | {
+            __typename: 'PageBlocksTimeline',
+            label?: string | null,
+            items?: Array<{
+                __typename: 'PageBlocksTimelineItems',
+                date?: string | null,
+                title?: string | null,
+                description?: string | null
+            } | null> | null
+        } | null> | null
+    }
+};
 
 export type PageConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -636,14 +984,152 @@ export type PageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type PageConnectionQuery = { __typename?: 'Query', pageConnection: { __typename?: 'PageConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PageConnectionEdges', cursor: string, node?: { __typename: 'Page', id: string, title: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PageBlocksHero', headline?: string | null, subtext?: string | null, backgroundImage?: string | null, cta?: { __typename: 'PageBlocksHeroCta', label?: string | null, url?: string | null } | null } | { __typename: 'PageBlocksMission', image?: string | null, imageSide?: string | null, content?: any | null } | { __typename: 'PageBlocksImpactGrid', stats?: Array<{ __typename: 'PageBlocksImpactGridStats', value?: string | null, label?: string | null } | null> | null } | { __typename: 'PageBlocksDonation', visible?: boolean | null, headline?: string | null, description?: any | null, methods?: Array<{ __typename: 'PageBlocksDonationMethods', label?: string | null, value?: string | null, helperText?: string | null } | null> | null } | { __typename: 'PageBlocksEvents', items?: Array<{ __typename: 'PageBlocksEventsItems', title?: string | null, date?: string | null, location?: string | null } | null> | null } | { __typename: 'PageBlocksContact', address?: string | null, phone?: string | null, email?: string | null, mapEmbed?: string | null } | null> | null } | null } | null> | null } };
+export type PageConnectionQuery = {
+    __typename?: 'Query', pageConnection: {
+        __typename?: 'PageConnection',
+        totalCount: number,
+        pageInfo: {
+            __typename?: 'PageInfo',
+            hasPreviousPage: boolean,
+            hasNextPage: boolean,
+            startCursor: string,
+            endCursor: string
+        },
+        edges?: Array<{
+            __typename?: 'PageConnectionEdges', cursor: string, node?: {
+                __typename: 'Page',
+                id: string,
+                title: string,
+                _sys: {
+                    __typename?: 'SystemInfo',
+                    filename: string,
+                    basename: string,
+                    hasReferences?: boolean | null,
+                    breadcrumbs: Array<string>,
+                    path: string,
+                    relativePath: string,
+                    extension: string
+                },
+                blocks?: Array<{
+                    __typename: 'PageBlocksHero',
+                    headline?: string | null,
+                    subtext?: string | null,
+                    backgroundImage?: string | null,
+                    cta?: { __typename: 'PageBlocksHeroCta', label?: string | null, url?: string | null } | null
+                } | {
+                    __typename: 'PageBlocksMission',
+                    image?: string | null,
+                    imageSide?: string | null,
+                    content?: any | null
+                } | {
+                    __typename: 'PageBlocksImpactGrid',
+                    stats?: Array<{
+                        __typename: 'PageBlocksImpactGridStats',
+                        value?: string | null,
+                        label?: string | null
+                    } | null> | null
+                } | {
+                    __typename: 'PageBlocksDonation',
+                    visible?: boolean | null,
+                    headline?: string | null,
+                    description?: any | null,
+                    methods?: Array<{
+                        __typename: 'PageBlocksDonationMethods',
+                        label?: string | null,
+                        value?: string | null,
+                        helperText?: string | null
+                    } | null> | null
+                } | {
+                    __typename: 'PageBlocksEvents',
+                    label?: string | null,
+                    items?: Array<{
+                        __typename: 'PageBlocksEventsItems',
+                        title?: string | null,
+                        date?: string | null,
+                        location?: string | null
+                    } | null> | null
+                } | {
+                    __typename: 'PageBlocksContact',
+                    label?: string | null,
+                    address?: string | null,
+                    phone?: Array<string | null> | null,
+                    email?: Array<string | null> | null,
+                    mapEmbed?: string | null
+                } | {
+                    __typename: 'PageBlocksImage',
+                    src: string,
+                    alt?: string | null,
+                    fit?: string | null,
+                    position?: string | null,
+                    maxHeight?: number | null
+                } | {
+                    __typename: 'PageBlocksFaq',
+                    label?: string | null,
+                    items?: Array<{
+                        __typename: 'PageBlocksFaqItems',
+                        question?: string | null,
+                        answer?: string | null
+                    } | null> | null
+                } | {
+                    __typename: 'PageBlocksTestimonials',
+                    label?: string | null,
+                    items?: Array<{
+                        __typename: 'PageBlocksTestimonialsItems',
+                        quote?: string | null,
+                        author?: string | null,
+                        role?: string | null
+                    } | null> | null
+                } | {
+                    __typename: 'PageBlocksTimeline',
+                    label?: string | null,
+                    items?: Array<{
+                        __typename: 'PageBlocksTimelineItems',
+                        date?: string | null,
+                        title?: string | null,
+                        description?: string | null
+                    } | null> | null
+                } | null> | null
+            } | null
+        } | null> | null
+    }
+};
 
 export type GlobalQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
 }>;
 
 
-export type GlobalQuery = { __typename?: 'Query', global: { __typename: 'Global', id: string, brandColor?: string | null, logo?: string | null, showPlaceholderLogo?: boolean | null, favicon?: string | null, organizationName?: string | null, slogan?: string | null, locale?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, navigation?: Array<{ __typename: 'GlobalNavigation', label?: string | null, url?: string | null } | null> | null, social?: { __typename: 'GlobalSocial', facebook?: string | null, instagram?: string | null } | null } };
+export type GlobalQuery = {
+    __typename?: 'Query',
+    global: {
+        __typename: 'Global',
+        id: string,
+        brandColor?: string | null,
+        logo?: string | null,
+        showPlaceholderLogo?: boolean | null,
+        favicon?: string | null,
+        organizationName?: string | null,
+        slogan?: string | null,
+        locale?: string | null,
+        socialLabel?: string | null,
+        _sys: {
+            __typename?: 'SystemInfo',
+            filename: string,
+            basename: string,
+            hasReferences?: boolean | null,
+            breadcrumbs: Array<string>,
+            path: string,
+            relativePath: string,
+            extension: string
+        },
+        navigation?: Array<{
+            __typename: 'GlobalNavigation',
+            label?: string | null,
+            url?: string | null
+        } | null> | null,
+        social?: { __typename: 'GlobalSocial', facebook?: string | null, instagram?: string | null } | null
+    }
+};
 
 export type GlobalConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -655,7 +1141,52 @@ export type GlobalConnectionQueryVariables = Exact<{
 }>;
 
 
-export type GlobalConnectionQuery = { __typename?: 'Query', globalConnection: { __typename?: 'GlobalConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'GlobalConnectionEdges', cursor: string, node?: { __typename: 'Global', id: string, brandColor?: string | null, logo?: string | null, showPlaceholderLogo?: boolean | null, favicon?: string | null, organizationName?: string | null, slogan?: string | null, locale?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, hasReferences?: boolean | null, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, navigation?: Array<{ __typename: 'GlobalNavigation', label?: string | null, url?: string | null } | null> | null, social?: { __typename: 'GlobalSocial', facebook?: string | null, instagram?: string | null } | null } | null } | null> | null } };
+export type GlobalConnectionQuery = {
+    __typename?: 'Query',
+    globalConnection: {
+        __typename?: 'GlobalConnection',
+        totalCount: number,
+        pageInfo: {
+            __typename?: 'PageInfo',
+            hasPreviousPage: boolean,
+            hasNextPage: boolean,
+            startCursor: string,
+            endCursor: string
+        },
+        edges?: Array<{
+            __typename?: 'GlobalConnectionEdges',
+            cursor: string,
+            node?: {
+                __typename: 'Global',
+                id: string,
+                brandColor?: string | null,
+                logo?: string | null,
+                showPlaceholderLogo?: boolean | null,
+                favicon?: string | null,
+                organizationName?: string | null,
+                slogan?: string | null,
+                locale?: string | null,
+                socialLabel?: string | null,
+                _sys: {
+                    __typename?: 'SystemInfo',
+                    filename: string,
+                    basename: string,
+                    hasReferences?: boolean | null,
+                    breadcrumbs: Array<string>,
+                    path: string,
+                    relativePath: string,
+                    extension: string
+                },
+                navigation?: Array<{
+                    __typename: 'GlobalNavigation',
+                    label?: string | null,
+                    url?: string | null
+                } | null> | null,
+                social?: { __typename: 'GlobalSocial', facebook?: string | null, instagram?: string | null } | null
+            } | null
+        } | null> | null
+    }
+};
 
 export const PagePartsFragmentDoc = gql`
     fragment PageParts on Page {
@@ -697,6 +1228,7 @@ export const PagePartsFragmentDoc = gql`
       }
     }
     ... on PageBlocksEvents {
+      label
       items {
         __typename
         title
@@ -705,10 +1237,44 @@ export const PagePartsFragmentDoc = gql`
       }
     }
     ... on PageBlocksContact {
+      label
       address
       phone
       email
       mapEmbed
+    }
+    ... on PageBlocksImage {
+      src
+      alt
+      fit
+      position
+      maxHeight
+    }
+    ... on PageBlocksFaq {
+      label
+      items {
+        __typename
+        question
+        answer
+      }
+    }
+    ... on PageBlocksTestimonials {
+      label
+      items {
+        __typename
+        quote
+        author
+        role
+      }
+    }
+    ... on PageBlocksTimeline {
+      label
+      items {
+        __typename
+        date
+        title
+        description
+      }
     }
   }
 }
@@ -723,6 +1289,7 @@ export const GlobalPartsFragmentDoc = gql`
   organizationName
   slogan
   locale
+  socialLabel
   navigation {
     __typename
     label
@@ -869,7 +1436,7 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
   export type Sdk = ReturnType<typeof getSdk>;
 
 // TinaSDK generated code
-import { createClient, TinaClient } from "tinacms/dist/client";
+import {createClient, TinaClient} from "tinacms/dist/client";
 
 const generateRequester = (
   client: TinaClient,

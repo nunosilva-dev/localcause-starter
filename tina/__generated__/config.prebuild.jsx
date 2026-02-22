@@ -1,5 +1,6 @@
 // tina/config.ts
-import { defineConfig } from "tinacms";
+import {defineConfig} from "tinacms";
+
 var branch = process.env.NEXT_PUBLIC_TINA_BRANCH || process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF || process.env.HEAD || "main";
 var config_default = defineConfig({
   branch,
@@ -49,7 +50,7 @@ var config_default = defineConfig({
             templates: [
               {
                 name: "hero",
-                label: "Hero",
+                  label: "Cover",
                 fields: [
                   { type: "string", name: "headline", label: "Headline" },
                   { type: "string", name: "subtext", label: "Subtext", ui: { component: "textarea" } },
@@ -67,7 +68,7 @@ var config_default = defineConfig({
               },
               {
                 name: "mission",
-                label: "Mission / Content",
+                  label: "Content",
                 fields: [
                   { type: "image", name: "image", label: "Image" },
                   {
@@ -136,6 +137,12 @@ var config_default = defineConfig({
                 name: "events",
                 label: "Events List",
                 fields: [
+                    {
+                        type: "string",
+                        name: "label",
+                        label: "Section Title",
+                        description: "Heading displayed above the events list (e.g. 'Upcoming Events')"
+                    },
                   {
                     type: "object",
                     list: true,
@@ -158,11 +165,159 @@ var config_default = defineConfig({
                 name: "contact",
                 label: "Contact Info",
                 fields: [
+                    {
+                        type: "string",
+                        name: "label",
+                        label: "Section Title",
+                        description: "Heading displayed above the contact info (e.g. 'Contact Us')"
+                    },
                   { type: "string", name: "address", label: "Address" },
-                  { type: "string", name: "phone", label: "Phone" },
-                  { type: "string", name: "email", label: "Email" },
+                    {type: "string", name: "phone", label: "Phone Numbers", list: true},
+                    {type: "string", name: "email", label: "Emails", list: true},
                   { type: "string", name: "mapEmbed", label: "Google Maps Embed URL" }
                 ]
+              },
+                {
+                    name: "image",
+                    label: "Image",
+                    fields: [
+                        {type: "image", name: "src", label: "Image", required: true},
+                        {
+                            type: "string",
+                            name: "alt",
+                            label: "Alt Text",
+                            description: "Describes the image for accessibility"
+                        },
+                        {
+                            type: "string",
+                            name: "fit",
+                            label: "Fit Mode",
+                            description: "How the image fills its container",
+                            options: [
+                                {value: "cover", label: "Cover (fills area, may crop)"},
+                                {value: "contain", label: "Contain (shows full image)"},
+                                {value: "fill", label: "Stretch (fills area exactly)"}
+                            ],
+                            ui: {defaultValue: "cover"}
+                        },
+                        {
+                            type: "string",
+                            name: "position",
+                            label: "Position",
+                            description: "Which part of the image to focus on",
+                            options: [
+                                {value: "center", label: "Center"},
+                                {value: "top", label: "Top"},
+                                {value: "bottom", label: "Bottom"},
+                                {value: "left", label: "Left"},
+                                {value: "right", label: "Right"},
+                                {value: "top left", label: "Top Left"},
+                                {value: "top right", label: "Top Right"},
+                                {value: "bottom left", label: "Bottom Left"},
+                                {value: "bottom right", label: "Bottom Right"}
+                            ],
+                            ui: {defaultValue: "center"}
+                        },
+                        {
+                            type: "number",
+                            name: "maxHeight",
+                            label: "Max Height (px)",
+                            description: "Optional max height in pixels. Leave empty for auto."
+                        }
+                    ]
+                },
+                {
+                    name: "faq",
+                    label: "FAQ",
+                    fields: [
+                        {
+                            type: "string",
+                            name: "label",
+                            label: "Section Title",
+                            description: "Heading displayed above the FAQ (e.g. 'Frequently Asked Questions')"
+                        },
+                        {
+                            type: "object",
+                            list: true,
+                            name: "items",
+                            label: "Questions",
+                            ui: {
+                                itemProps: (item) => {
+                                    return {label: item?.question || "New Question"};
+                                }
+                            },
+                            fields: [
+                                {type: "string", name: "question", label: "Question"},
+                                {type: "string", name: "answer", label: "Answer", ui: {component: "textarea"}}
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "testimonials",
+                    label: "Testimonials",
+                    fields: [
+                        {
+                            type: "string",
+                            name: "label",
+                            label: "Section Title",
+                            description: "Heading displayed above the testimonials"
+                        },
+                        {
+                            type: "object",
+                            list: true,
+                            name: "items",
+                            label: "Testimonials",
+                            ui: {
+                                itemProps: (item) => {
+                                    return {label: item?.author || "New Testimonial"};
+                                }
+                            },
+                            fields: [
+                                {type: "string", name: "quote", label: "Quote", ui: {component: "textarea"}},
+                                {type: "string", name: "author", label: "Author"},
+                                {
+                                    type: "string",
+                                    name: "role",
+                                    label: "Role (optional)",
+                                    description: "e.g. Volunteer, Partner, Beneficiary"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "timeline",
+                    label: "Timeline",
+                    fields: [
+                        {
+                            type: "string",
+                            name: "label",
+                            label: "Section Title",
+                            description: "Heading displayed above the timeline"
+                        },
+                        {
+                            type: "object",
+                            list: true,
+                            name: "items",
+                            label: "Milestones",
+                            ui: {
+                                itemProps: (item) => {
+                                    return {label: item?.title || "New Milestone"};
+                                }
+                            },
+                            fields: [
+                                {
+                                    type: "string",
+                                    name: "date",
+                                    label: "Date / Year",
+                                    description: "e.g. 2020, March 2023, etc."
+                                },
+                                {type: "string", name: "title", label: "Title"},
+                                {type: "string", name: "description", label: "Description", ui: {component: "textarea"}}
+                            ]
+                        }
+                    ]
               }
             ]
           }
@@ -189,6 +344,12 @@ var config_default = defineConfig({
           { type: "string", name: "organizationName", label: "Organization Name" },
           { type: "string", name: "slogan", label: "Footer Slogan", description: "Short text below the logo" },
           { type: "string", name: "locale", label: "Site Locale", description: "e.g. en_US, pt_PT", ui: { defaultValue: "en_US" } },
+            {
+                type: "string",
+                name: "socialLabel",
+                label: "Social Section Label",
+                description: "Label shown above social icons in the footer (e.g. 'Follow Us')"
+            },
           {
             type: "object",
             list: true,

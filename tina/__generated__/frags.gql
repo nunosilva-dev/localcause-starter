@@ -37,6 +37,7 @@ fragment PageParts on Page {
       }
     }
     ... on PageBlocksEvents {
+      label
       items {
         __typename
         title
@@ -45,10 +46,44 @@ fragment PageParts on Page {
       }
     }
     ... on PageBlocksContact {
+      label
       address
       phone
       email
       mapEmbed
+    }
+    ... on PageBlocksImage {
+      src
+      alt
+      fit
+      position
+      maxHeight
+    }
+    ... on PageBlocksFaq {
+      label
+      items {
+        __typename
+        question
+        answer
+      }
+    }
+    ... on PageBlocksTestimonials {
+      label
+      items {
+        __typename
+        quote
+        author
+        role
+      }
+    }
+    ... on PageBlocksTimeline {
+      label
+      items {
+        __typename
+        date
+        title
+        description
+      }
     }
   }
 }
@@ -62,6 +97,7 @@ fragment GlobalParts on Global {
   organizationName
   slogan
   locale
+  socialLabel
   navigation {
     __typename
     label

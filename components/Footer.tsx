@@ -1,6 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
-import { ExternalLink, Facebook, Instagram } from "lucide-react";
+import {ExternalLink, Facebook, Instagram} from "lucide-react";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const Footer = ({ data }: { data: any }) => {
@@ -28,7 +27,7 @@ export const Footer = ({ data }: { data: any }) => {
                         {(data?.social?.facebook || data?.social?.instagram) && (
                             <>
                                 <span
-                                    className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Follow Us</span>
+                                    className="text-sm font-semibold text-gray-500 uppercase tracking-wider">{data?.socialLabel || "Socials"}</span>
                                 <div className="flex gap-4">
                                     {data?.social?.facebook && (
                                         <a
@@ -63,7 +62,7 @@ export const Footer = ({ data }: { data: any }) => {
                             href="/admin"
                             className="group text-xs font-semibold uppercase tracking-wider text-gray-400 hover:text-primary flex items-center gap-2 border border-gray-200 px-4 py-2 rounded-lg hover:border-primary transition-all"
                         >
-                            Staff Login
+                            Staff
                             <ExternalLink size={14}
                                 className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                         </Link>

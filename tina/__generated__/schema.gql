@@ -137,17 +137,59 @@ type PageBlocksEventsItems {
 }
 
 type PageBlocksEvents {
+  label: String
   items: [PageBlocksEventsItems]
 }
 
 type PageBlocksContact {
+  label: String
   address: String
-  phone: String
-  email: String
+  phone: [String]
+  email: [String]
   mapEmbed: String
 }
 
-union PageBlocks = PageBlocksHero | PageBlocksMission | PageBlocksImpactGrid | PageBlocksDonation | PageBlocksEvents | PageBlocksContact
+type PageBlocksImage {
+  src: String!
+  alt: String
+  fit: String
+  position: String
+  maxHeight: Float
+}
+
+type PageBlocksFaqItems {
+  question: String
+  answer: String
+}
+
+type PageBlocksFaq {
+  label: String
+  items: [PageBlocksFaqItems]
+}
+
+type PageBlocksTestimonialsItems {
+  quote: String
+  author: String
+  role: String
+}
+
+type PageBlocksTestimonials {
+  label: String
+  items: [PageBlocksTestimonialsItems]
+}
+
+type PageBlocksTimelineItems {
+  date: String
+  title: String
+  description: String
+}
+
+type PageBlocksTimeline {
+  label: String
+  items: [PageBlocksTimelineItems]
+}
+
+union PageBlocks = PageBlocksHero | PageBlocksMission | PageBlocksImpactGrid | PageBlocksDonation | PageBlocksEvents | PageBlocksContact | PageBlocksImage | PageBlocksFaq | PageBlocksTestimonials | PageBlocksTimeline
 
 type Page implements Node & Document {
   title: String!
@@ -237,14 +279,66 @@ input PageBlocksEventsItemsFilter {
 }
 
 input PageBlocksEventsFilter {
+  label: StringFilter
   items: PageBlocksEventsItemsFilter
 }
 
 input PageBlocksContactFilter {
+  label: StringFilter
   address: StringFilter
   phone: StringFilter
   email: StringFilter
   mapEmbed: StringFilter
+}
+
+input NumberFilter {
+  lt: Float
+  lte: Float
+  gte: Float
+  gt: Float
+  eq: Float
+  exists: Boolean
+  in: [Float]
+}
+
+input PageBlocksImageFilter {
+  src: ImageFilter
+  alt: StringFilter
+  fit: StringFilter
+  position: StringFilter
+  maxHeight: NumberFilter
+}
+
+input PageBlocksFaqItemsFilter {
+  question: StringFilter
+  answer: StringFilter
+}
+
+input PageBlocksFaqFilter {
+  label: StringFilter
+  items: PageBlocksFaqItemsFilter
+}
+
+input PageBlocksTestimonialsItemsFilter {
+  quote: StringFilter
+  author: StringFilter
+  role: StringFilter
+}
+
+input PageBlocksTestimonialsFilter {
+  label: StringFilter
+  items: PageBlocksTestimonialsItemsFilter
+}
+
+input PageBlocksTimelineItemsFilter {
+  date: StringFilter
+  title: StringFilter
+  description: StringFilter
+}
+
+input PageBlocksTimelineFilter {
+  label: StringFilter
+  items: PageBlocksTimelineItemsFilter
 }
 
 input PageBlocksFilter {
@@ -254,6 +348,10 @@ input PageBlocksFilter {
   donation: PageBlocksDonationFilter
   events: PageBlocksEventsFilter
   contact: PageBlocksContactFilter
+  image: PageBlocksImageFilter
+  faq: PageBlocksFaqFilter
+  testimonials: PageBlocksTestimonialsFilter
+  timeline: PageBlocksTimelineFilter
 }
 
 input PageFilter {
@@ -290,6 +388,7 @@ type Global implements Node & Document {
   organizationName: String
   slogan: String
   locale: String
+  socialLabel: String
   navigation: [GlobalNavigation]
   social: GlobalSocial
   id: ID!
@@ -315,6 +414,7 @@ input GlobalFilter {
   organizationName: StringFilter
   slogan: StringFilter
   locale: StringFilter
+  socialLabel: StringFilter
   navigation: GlobalNavigationFilter
   social: GlobalSocialFilter
 }
@@ -400,14 +500,56 @@ input PageBlocksEventsItemsMutation {
 }
 
 input PageBlocksEventsMutation {
+  label: String
   items: [PageBlocksEventsItemsMutation]
 }
 
 input PageBlocksContactMutation {
+  label: String
   address: String
-  phone: String
-  email: String
+  phone: [String]
+  email: [String]
   mapEmbed: String
+}
+
+input PageBlocksImageMutation {
+  src: String
+  alt: String
+  fit: String
+  position: String
+  maxHeight: Float
+}
+
+input PageBlocksFaqItemsMutation {
+  question: String
+  answer: String
+}
+
+input PageBlocksFaqMutation {
+  label: String
+  items: [PageBlocksFaqItemsMutation]
+}
+
+input PageBlocksTestimonialsItemsMutation {
+  quote: String
+  author: String
+  role: String
+}
+
+input PageBlocksTestimonialsMutation {
+  label: String
+  items: [PageBlocksTestimonialsItemsMutation]
+}
+
+input PageBlocksTimelineItemsMutation {
+  date: String
+  title: String
+  description: String
+}
+
+input PageBlocksTimelineMutation {
+  label: String
+  items: [PageBlocksTimelineItemsMutation]
 }
 
 input PageBlocksMutation {
@@ -417,6 +559,10 @@ input PageBlocksMutation {
   donation: PageBlocksDonationMutation
   events: PageBlocksEventsMutation
   contact: PageBlocksContactMutation
+  image: PageBlocksImageMutation
+  faq: PageBlocksFaqMutation
+  testimonials: PageBlocksTestimonialsMutation
+  timeline: PageBlocksTimelineMutation
 }
 
 input PageMutation {
@@ -442,6 +588,7 @@ input GlobalMutation {
   organizationName: String
   slogan: String
   locale: String
+  socialLabel: String
   navigation: [GlobalNavigationMutation]
   social: GlobalSocialMutation
 }

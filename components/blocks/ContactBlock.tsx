@@ -6,7 +6,7 @@ export const ContactBlock = ({data}: { data: PageBlocksContact }) => {
         <section className="py-20 bg-gray-900 text-white">
             <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-12">
                 <div className="flex-1">
-                    <h2 className="text-3xl font-bold mb-8">Contact Us</h2>
+                    <h2 className="text-3xl font-bold mb-8">{data.label || "Contacts"}</h2>
                     <div className="space-y-6 text-lg">
                         {data.address && (
                             <div className="flex items-center gap-4">
@@ -14,18 +14,18 @@ export const ContactBlock = ({data}: { data: PageBlocksContact }) => {
                                 <span>{data.address}</span>
                             </div>
                         )}
-                        {data.phone && (
-                            <div className="flex items-center gap-4">
+                        {data.phone?.map((phone, i) => (
+                            <div key={`phone-${i}`} className="flex items-center gap-4">
                                 <Phone className="text-primary w-6 h-6"/>
-                                <span>{data.phone}</span>
+                                <span>{phone}</span>
                             </div>
-                        )}
-                        {data.email && (
-                            <div className="flex items-center gap-4">
+                        ))}
+                        {data.email?.map((email, i) => (
+                            <div key={`email-${i}`} className="flex items-center gap-4">
                                 <Mail className="text-primary w-6 h-6"/>
-                                <span>{data.email}</span>
+                                <span>{email}</span>
                             </div>
-                        )}
+                        ))}
                     </div>
                 </div>
                 <div className="flex-1 h-[400px] rounded-xl overflow-hidden bg-gray-800">
